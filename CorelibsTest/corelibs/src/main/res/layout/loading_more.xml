@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        android:gravity="center">
+
+        <com.corelibs.views.CircularBar
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            app:circularColor="#a8a8a8"
+            app:circularWidth="1.5dp"
+            android:layout_marginEnd="15dp"/>
+
+        <TextView
+            android:id="@+id/loadingText"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="@string/loading_more"
+            android:textColor="#666" />
+    </LinearLayout>
+
+</FrameLayout>

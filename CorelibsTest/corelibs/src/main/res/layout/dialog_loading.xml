@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#55000000"
+    android:gravity="center">
+
+    <LinearLayout
+        android:id="@+id/ll_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/loading_bg"
+        android:gravity="center"
+        android:orientation="horizontal" 
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <com.corelibs.views.CircularBar
+            android:id="@+id/circle"
+            android:layout_width="40dp"
+            android:layout_height="40dp" 
+            app:circularWidth="3dp"
+            app:circularColor="#00b4ac"/>
+
+        <TextView
+            android:id="@+id/tv_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textColor="#666"
+            android:textSize="14sp" 
+            android:maxWidth="200dp"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+</LinearLayout>

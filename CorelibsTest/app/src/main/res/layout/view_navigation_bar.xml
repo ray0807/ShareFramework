@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@color/main" >
+
+    <LinearLayout
+        android:id="@+id/ll_back_operate"
+        android:layout_width="38dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/general_back_icon"
+            android:contentDescription="@null"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_top_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_del"
+        android:layout_width="48dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:text="@string/action_delete"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:visibility="gone"/>
+    
+    <TextView
+        android:id="@+id/tv_alter"
+        android:layout_width="48dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/action_alter"
+        android:textColor="@color/white"
+        android:textSize="15sp" 
+        android:layout_toStartOf="@id/tv_del"
+        android:visibility="gone"/>
+    
+    <TextView
+        android:id="@+id/tv_logout"
+        android:layout_width="78dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:text="@string/action_logout"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:visibility="gone"/>
+
+</RelativeLayout>
