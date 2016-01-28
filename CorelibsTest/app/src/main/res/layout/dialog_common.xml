@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300.0dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textv_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:id="@+id/relayout_addview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#C3C3C3" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40.0dp" >
+
+        <Button
+            android:id="@+id/btn_dialog_cancel"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center"
+            android:text="@string/dialog_cancle"
+            android:textColor="#3F96F1" />
+
+        <TextView
+            android:id="@+id/tv_dialog_cut"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#C3C3C3" />
+
+        <Button
+            android:id="@+id/btn_dialog_confir"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center"
+            android:text="@string/dialog_confirm"
+            android:textColor="#3F96F1" />
+    </LinearLayout>
+
+</LinearLayout>

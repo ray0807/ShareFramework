@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- general -->
+    <string name="app_name">CoreLibs</string>
+    <string name="delay_load">300</string>
+    <string name="general_error">获取数据出现异常，请稍后再试</string>
+    <string name="general_server_down">网络不给力，请求超时</string>
+    <string name="general_no_internet">网络故障，请检查你的网络</string>
+    <string name="general_network_error">网络异常,请检查网络设置</string>
+    <string name="general_force_close">很抱歉,程序出现异常,即将退出!</string>
+    <string name="general_no_gallery_app">没有找到相应的程序执行该操作</string>
+    <string name="general_no_camera_app">没有程序执行拍照操作</string>
+    <string name="general_download_error">很抱歉，应用没有下载成功!</string>
+    <string name="general_code_error">数据异常</string>
+    <!-- general -->
+</resources>
