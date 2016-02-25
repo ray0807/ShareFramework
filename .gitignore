@@ -5,3 +5,8 @@
 /CorelibsTest/.DS_Store
 /CorelibsTest/build
 /CorelibsTest/captures
+/SimplifyCorlibs/build
+/SimplifyCorlibs/app/build
+/SimplifyCorlibs/simplifyCorelibs/build
+/SimplifyCorlibs/.idea
+/SimplifyCorlibs/.gradle

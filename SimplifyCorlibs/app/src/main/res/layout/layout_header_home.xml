@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <fragment
+        android:id="@+id/fr_ad"
+        android:name="com.ray.balloon.view.main.RecommendAdFragment"
+        android:layout_height="180dp"
+        android:layout_width="match_parent"
+        tools:layout="@layout/fragment_recommend_ad" />
+
+    <LinearLayout
+        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="#FFF">
+
+        <LinearLayout
+            android:id="@+id/ll_nav_sum1"
+            style="@style/main_category">
+
+            <TextView
+                android:id="@+id/tv_nav_sum1"
+                style="@style/main_category_text_circle"
+                android:background="@drawable/main_category_bg1"/>
+
+            <TextView
+                android:id="@+id/tv_nav1"
+                style="@style/main_category_text"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_nav_sum2"
+            style="@style/main_category">
+
+            <TextView
+                android:id="@+id/tv_nav_sum2"
+                style="@style/main_category_text_circle"
+                android:background="@drawable/main_category_bg2"/>
+
+            <TextView
+                android:id="@+id/tv_nav2"
+                style="@style/main_category_text"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_nav_sum3"
+            style="@style/main_category">
+
+            <TextView
+                android:id="@+id/tv_nav_sum3"
+                style="@style/main_category_text_circle"
+                android:background="@drawable/main_category_bg3"/>
+
+            <TextView
+                android:id="@+id/tv_nav3"
+                style="@style/main_category_text"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_nav_sum4"
+            style="@style/main_category">
+
+            <TextView
+                android:id="@+id/tv_nav_sum4"
+                style="@style/main_category_text_circle"
+                android:background="@drawable/main_category_bg4"/>
+
+            <TextView
+                android:id="@+id/tv_nav4"
+                style="@style/main_category_text"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_height="35dp"
+        android:layout_width="match_parent"
+        android:text="@string/hot_product"
+        android:textSize="15sp"
+        android:textColor="@color/main"
+        android:gravity="center_vertical"
+        android:paddingStart="10dp"/>
+
+</LinearLayout>

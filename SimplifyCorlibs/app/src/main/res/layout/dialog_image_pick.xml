@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_horizontal" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/btn_takephoto1"
+                style="@style/btn_common_style_pll"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/takephoto_btn_style"
+                android:text="拍照"
+                android:textColor="@color/main_text"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btn_takephoto2"
+                style="@style/btn_common_style_pll"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/takephoto_btn_style"
+                android:text="本地上传"
+               android:textColor="@color/main_text"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btn_takephoto_cancel"
+                style="@style/btn_common_style_pll"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/takephoto_btn_style"
+                android:text="取消"
+                android:textColor="@color/main"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="135dp"
+        android:background="#FFF"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_msg"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textColor="#444" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#ddd" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn_nav"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/exception_btn_bg"
+                android:gravity="center"
+                android:text="关闭程序"
+                android:textColor="#555" />
+
+            <View
+                android:layout_width="0.2dp"
+                android:layout_height="match_parent"
+                android:background="#EEE" />
+
+            <Button
+                android:id="@+id/btn_pos"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/exception_btn_bg"
+                android:gravity="center"
+                android:text="查看详情"
+                android:textColor="#555" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

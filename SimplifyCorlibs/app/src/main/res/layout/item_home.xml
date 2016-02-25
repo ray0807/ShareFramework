@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+
+    android:layout_height="wrap_content">
+
+    <!--<ImageView
+        android:id="@+id/iv_prodImage"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginTop="1dp"
+        android:background="#ccc"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop" />-->
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/iv_prodImage"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        fresco:fadeDuration="300"
+        fresco:placeholderImage="@mipmap/default_icon"
+        fresco:placeholderImageScaleType="centerCrop"
+        fresco:roundBottomLeft="true"
+        fresco:roundBottomRight="true"
+        fresco:roundTopLeft="true"
+        fresco:roundTopRight="true"
+        fresco:roundedCornerRadius="5dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:background="#CCFFFFFF"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:id="@+id/tv_prod_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:textColor="#666"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_prod_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/main"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,6 +1,7 @@
 package com.ryan.corelibstest.view.main;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import com.ryan.corelibstest.model.bean.Brand;
 import com.ryan.corelibstest.model.bean.Category;
 import com.ryan.corelibstest.model.bean.Product;
 import com.ryan.corelibstest.presenter.HomePresenter;
+import com.ryan.corelibstest.view.fresco.FrescoActivity;
 import com.ryan.corelibstest.widget.NavigationBar;
 
 import java.util.List;
@@ -123,7 +125,10 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter>
     }
 
     public void onClick(View view) {
+
         showToastMessage("clicked");
+        Intent it =new Intent(getActivity(), FrescoActivity.class);
+        startActivity(it);
     }
 
     @Override

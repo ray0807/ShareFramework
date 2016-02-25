@@ -44,7 +44,9 @@
         <activity
             android:name="com.ryan.corelibstest.view.entry.LoginActivity"
             android:screenOrientation="portrait" />
-
+        <activity
+            android:name="com.ryan.corelibstest.view.fresco.FrescoActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
