@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Carbon">
+        <attr name="carbon_colorBackground" format="reference|color" />
+        <attr name="carbon_colorBackground_inverse" format="reference|color" />
+        <attr name="carbon_colorError" format="reference|color" />
+        <attr name="carbon_colorDisabled" format="reference|color" />
+        <attr name="carbon_colorControl" format="reference|color" />
+
+        <attr name="carbon_dividerColor" format="reference|color" />
+        <attr name="carbon_edgeEffectColor" format="color|reference" />
+        <attr name="carbon_iconColor" format="reference|color" />
+
+        <attr name="carbon_tint" format="color|reference" />
+
+        <attr name="carbon_rippleColor" format="reference|color" />
+        <attr name="carbon_rippleHotspot" format="boolean" />
+        <attr name="carbon_rippleStyle" format="enum">
+            <enum name="over" value="0" />
+            <enum name="background" value="1" />
+            <enum name="borderless" value="2" />
+        </attr>
+
+        <attr name="carbon_inAnimation" format="enum">
+            <enum name="none" value="0" />
+            <enum name="fade" value="1" />
+            <enum name="pop" value="2" />
+            <enum name="fly" value="3" />
+            <enum name="brightnessSaturationFade" value="4" />
+            <enum name="progressWidth" value="5" />
+        </attr>
+
+        <attr name="carbon_outAnimation" format="enum">
+            <enum name="none" value="0" />
+            <enum name="fade" value="1" />
+            <enum name="pop" value="2" />
+            <enum name="fly" value="3" />
+            <enum name="brightnessSaturationFade" value="4" />
+            <enum name="progressWidth" value="5" />
+        </attr>
+
+        <attr name="carbon_debugMode" format="boolean" />
+
+        <attr name="carbon_touchMargin" format="dimension" />
+        <attr name="carbon_touchMarginLeft" format="dimension" />
+        <attr name="carbon_touchMarginTop" format="dimension" />
+        <attr name="carbon_touchMarginRight" format="dimension" />
+        <attr name="carbon_touchMarginBottom" format="dimension" />
+
+        <attr name="carbon_insetColor" format="color" />
+        <attr name="carbon_inset" format="dimension" />
+        <attr name="carbon_insetLeft" format="dimension" />
+        <attr name="carbon_insetTop" format="dimension" />
+        <attr name="carbon_insetRight" format="dimension" />
+        <attr name="carbon_insetBottom" format="dimension" />
+
+        <attr name="carbon_textAppearance_headline" format="reference" />
+        <attr name="carbon_textAppearance_title" format="reference" />
+        <attr name="carbon_textAppearance_subhead" format="reference" />
+        <attr name="carbon_textAppearance_body2" format="reference" />
+        <attr name="carbon_textAppearance_body1" format="reference" />
+        <attr name="carbon_textAppearance_caption" format="reference" />
+        <attr name="carbon_textAppearance_button" format="reference" />
+
+        <attr name="carbon_textAppearance_headline_inverse" format="reference" />
+        <attr name="carbon_textAppearance_title_inverse" format="reference" />
+        <attr name="carbon_textAppearance_subhead_inverse" format="reference" />
+        <attr name="carbon_textAppearance_body2_inverse" format="reference" />
+        <attr name="carbon_textAppearance_body1_inverse" format="reference" />
+        <attr name="carbon_textAppearance_caption_inverse" format="reference" />
+        <attr name="carbon_textAppearance_button_inverse" format="reference" />
+    </declare-styleable>
+
+    <attr name="carbon_filterColor" format="reference|color" />
+    <attr name="carbon_src" format="reference" />
+    <attr name="carbon_elevation" format="dimension" />
+    <attr name="carbon_cornerRadius" format="dimension" />
+    <attr name="carbon_textAllCaps" format="boolean" />
+    <attr name="carbon_overScroll" format="enum">
+        <enum name="always" value="0" />
+        <enum name="ifContentScrolls" value="1" />
+        <enum name="never" value="2" />
+    </attr>
+
+    <attr name="carbon_headerTint" format="reference|color" />
+    <attr name="carbon_headerMinHeight" format="dimension" />
+    <attr name="carbon_headerParallax" format="float" />
+
+    <attr name="carbon_fontPath" format="string" />
+
+    <attr name="carbon_fabStyle" format="reference" />
+    <declare-styleable name="SVGActionButton">
+        <attr name="carbon_cornerRadius" />
+    </declare-styleable>
+
+    <declare-styleable name="ImageActionButton">
+        <attr name="carbon_cornerRadius" />
+    </declare-styleable>
+
+    <declare-styleable name="Button">
+        <attr name="carbon_elevation" />
+        <attr name="carbon_fontPath" />
+        <attr name="carbon_textAllCaps" />
+        <attr name="android:textAppearance" />
+        <attr name="carbon_touchMargin" />
+        <attr name="carbon_touchMarginLeft" />
+        <attr name="carbon_touchMarginTop" />
+        <attr name="carbon_touchMarginRight" />
+        <attr name="carbon_touchMarginBottom" />
+        <attr name="carbon_cornerRadius" />
+    </declare-styleable>
+
+    <declare-styleable name="TextView">
+        <attr name="carbon_fontPath" />
+        <attr name="carbon_textAllCaps" />
+        <attr name="android:textAppearance" />
+    </declare-styleable>
+
+    <attr name="carbon_svgViewStyle" format="reference" />
+    <declare-styleable name="SVGView">
+        <attr name="carbon_rippleColor" />
+        <attr name="carbon_filterColor" />
+        <attr name="carbon_src" />
+        <attr name="carbon_touchMargin" />
+        <attr name="carbon_touchMarginLeft" />
+        <attr name="carbon_touchMarginTop" />
+        <attr name="carbon_touchMarginRight" />
+        <attr name="carbon_touchMarginBottom" />
+    </declare-styleable>
+
+    <attr name="carbon_frameLayoutStyle" format="reference" />
+    <declare-styleable name="FrameLayout">
+        <attr name="carbon_rippleColor" />
+        <attr name="carbon_elevation" />
+        <attr name="carbon_cornerRadius" />
+    </declare-styleable>
+
+    <attr name="carbon_gridLayoutStyle" format="reference" />
+    <declare-styleable name="GridLayout">
+        <attr name="carbon_rippleColor" />
+        <attr name="carbon_elevation" />
+        <attr name="carbon_cornerRadius" />
+    </declare-styleable>
+
+    <attr name="carbon_relativeLayoutStyle" format="reference" />
+    <declare-styleable name="RelativeLayout">
+        <attr name="carbon_rippleColor" />
+        <attr name="carbon_elevation" />
+        <attr name="carbon_cornerRadius" />
+    </declare-styleable>
+
+    <attr name="carbon_linearLayoutStyle" format="reference" />
+    <declare-styleable name="LinearLayout">
+        <attr name="carbon_rippleColor" />
+        <attr name="carbon_elevation" />
+        <attr name="carbon_cornerRadius" />
+    </declare-styleable>
+
+    <attr name="carbon_drawerLayoutStyle" format="reference" />
+    <declare-styleable name="DrawerLayout">
+        <attr name="carbon_rippleColor" />
+        <attr name="carbon_elevation" />
+        <attr name="carbon_cornerRadius" />
+    </declare-styleable>
+
+    <attr name="carbon_snackbarStyle" format="reference" />
+    <declare-styleable name="Snackbar">
+        <attr name="carbon_layoutStyle" format="enum">
+            <enum name="floating" value="0" />
+            <enum name="docked" value="1" />
+        </attr>
+        <attr name="android:background" />
+        <attr name="carbon_duration" format="integer" />
+    </declare-styleable>
+
+    <attr name="carbon_toolbarStyle" format="reference" />
+    <declare-styleable name="Toolbar">
+        <attr name="carbon_elevation" />
+        <attr name="android:background" />
+    </declare-styleable>
+
+    <attr name="carbon_imageViewStyle" format="reference" />
+    <declare-styleable name="ImageView">
+        <attr name="carbon_rippleColor" />
+        <attr name="carbon_elevation" />
+        <attr name="carbon_touchMargin" />
+        <attr name="carbon_touchMarginLeft" />
+        <attr name="carbon_touchMarginTop" />
+        <attr name="carbon_touchMarginRight" />
+        <attr name="carbon_touchMarginBottom" />
+        <attr name="carbon_cornerRadius" />
+    </declare-styleable>
+
+    <attr name="carbon_dividerStyle" format="reference" />
+    <declare-styleable name="Divider">
+        <attr name="android:background" />
+    </declare-styleable>
+
+    <attr name="carbon_progressBarStyle" format="reference" />
+    <declare-styleable name="ProgressBar">
+        <attr name="carbon_progressStyle" format="enum">
+            <enum name="bar_determinate" value="0" />
+            <enum name="bar_indeterminate" value="1" />
+            <enum name="bar_query" value="2" />
+            <enum name="circular_determinate" value="3" />
+            <enum name="circular_indeterminate" value="4" />
+        </attr>
+        <attr name="carbon_barWidth" format="dimension" />
+    </declare-styleable>
+
+    <attr name="carbon_cardViewStyle" format="reference" />
+
+    <attr name="carbon_editTextStyle" format="reference" />
+    <declare-styleable name="EditText">
+        <attr name="carbon_textAllCaps" />
+        <attr name="carbon_fontPath" />
+        <attr name="carbon_minCharacters" format="integer" />
+        <attr name="carbon_maxCharacters" format="integer" />
+        <attr name="carbon_pattern" format="string" />
+        <attr name="carbon_errorMessage" format="string" />
+        <attr name="carbon_floatingLabel" format="boolean" />
+        <attr name="android:textAppearance" />
+    </declare-styleable>
+
+    <attr name="carbon_pagerTabStripStyle" format="reference" />
+    <declare-styleable name="PagerTabStrip">
+        <attr name="carbon_indicatorWidth" format="dimension" />
+        <attr name="carbon_fixedTabs" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="TextAppearance">
+        <attr name="carbon_fontPath" />
+        <attr name="carbon_textAllCaps" />
+    </declare-styleable>
+
+    <declare-styleable name="ScrollView">
+        <attr name="carbon_overScroll" />
+        <attr name="carbon_headerTint" />
+        <attr name="carbon_headerMinHeight" />
+        <attr name="carbon_headerParallax" />
+    </declare-styleable>
+
+    <attr name="carbon_horizontalScrollViewStyle" format="reference" />
+    <declare-styleable name="HorizontalScrollView">
+        <attr name="carbon_overScroll" />
+    </declare-styleable>
+
+    <attr name="carbon_viewPagerStyle" format="reference" />
+    <declare-styleable name="ViewPager">
+        <attr name="carbon_overScroll" />
+    </declare-styleable>
+
+    <attr name="carbon_recyclerViewStyle" />
+    <declare-styleable name="RecyclerView">
+        <attr name="carbon_headerTint" />
+        <attr name="carbon_headerMinHeight" />
+        <attr name="carbon_headerParallax" />
+    </declare-styleable>
+
+    <attr name="carbon_checkBoxStyle" />
+    <declare-styleable name="CheckBox">
+        <attr name="carbon_fontPath" />
+        <attr name="carbon_textAllCaps" />
+        <attr name="android:textAppearance" />
+    </declare-styleable>
+
+    <attr name="carbon_radioButtonStyle" />
+    <declare-styleable name="RadioButton">
+        <attr name="carbon_fontPath" />
+        <attr name="carbon_textAllCaps" />
+        <attr name="android:textAppearance" />
+    </declare-styleable>
+
+
+</resources>

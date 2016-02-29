@@ -108,5 +108,9 @@
     <string name="address_hint1">修改</string>
     <string name="address_hint2">新增收货地址</string>
     <string name="address_hint3">暂无收货地址</string>
+
+    <!--登录-->
+    <string name="login_title">登录</string>
+    <string name="login_username_no_invalidate">输入手机号不合法</string>
 </resources>
 

@@ -1,6 +1,5 @@
 package com.ray.balloon.widget;
 
-import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -18,14 +17,7 @@ public class NavigationBar extends FrameLayout {
 	private Context mContext;
 	private TextView title;
 	private LinearLayout back;
-	private TextView tv_del, tv_logout, tv_alter;
-	
-	private OnClickListener deflt = new OnClickListener() {
-		@Override
-		public void onClick(View v) {
-			((Activity)mContext).finish();
-		}
-	};
+
 
 	public NavigationBar(Context context) {
 		super(context);
@@ -49,23 +41,12 @@ public class NavigationBar extends FrameLayout {
 		View parent = LayoutInflater.from(mContext).inflate(R.layout.view_navigation_bar, this);
 		title = (TextView) parent.findViewById(R.id.tv_top_title);
 		back = (LinearLayout) parent.findViewById(R.id.ll_back_operate);
-		tv_del = (TextView) parent.findViewById(R.id.tv_del);
-		tv_logout = (TextView) parent.findViewById(R.id.tv_logout);
-		tv_alter = (TextView) parent.findViewById(R.id.tv_alter);
-		
-		back.setOnClickListener(deflt);
+
 		setBackgroundColor(DEFAULT_COLOR);
 	}
 	
-	public void hideBackButton() {
-		back.setVisibility(View.GONE);
-	}
-	
-	public void showBackButton() {
-		back.setVisibility(View.VISIBLE);
-	}
-	
-	public void setBackAction(OnClickListener listener) {
+
+	public void setBackListener(OnClickListener listener) {
 		back.setVisibility(View.VISIBLE);
 		back.setOnClickListener(listener);
 	}
@@ -88,31 +69,5 @@ public class NavigationBar extends FrameLayout {
 		title.setTextColor(color);
 	}
 	
-	public void showDelete(OnClickListener listener) {
-		tv_del.setVisibility(View.VISIBLE);
-		tv_del.setOnClickListener(listener);
-	}
-	
-	public void hideDelete() {
-		tv_del.setVisibility(View.GONE);
-	}
-	
-	public void showAlter(OnClickListener listener) {
-		tv_alter.setVisibility(View.VISIBLE);
-		tv_alter.setOnClickListener(listener);
-	}
-	
-	public void hideAlter() {
-		tv_alter.setVisibility(View.GONE);
-	}
-	
-	public void showLogout(OnClickListener listener) {
-		tv_logout.setVisibility(View.VISIBLE);
-		tv_logout.setOnClickListener(listener);
-	}
-	
-	public void hideLogout() {
-		tv_logout.setVisibility(View.GONE);
-	}
 
 }

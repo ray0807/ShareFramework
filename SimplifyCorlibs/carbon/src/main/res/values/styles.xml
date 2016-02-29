@@ -1,0 +1,336 @@
+<resources>
+
+    <style name="carbon_Theme.Dark" parent="Theme.AppCompat">
+        <item name="carbon_colorError">#ffF44336</item>
+        <item name="carbon_debugMode">false</item>
+
+        <item name="android:buttonStyle">@style/carbon_Button</item>
+        <item name="android:textViewStyle">@style/carbon_TextView</item>
+        <item name="android:listViewStyle">@style/carbon_ListView</item>
+        <item name="android:scrollViewStyle">@style/carbon_ScrollView</item>
+
+        <item name="carbon_horizontalScrollViewStyle">@style/carbon_HorizontalScrollView</item>
+        <item name="carbon_imageViewStyle">@style/carbon_ImageView</item>
+        <item name="carbon_fabStyle">@style/carbon_FloatingActionButton</item>
+        <item name="carbon_svgViewStyle">@style/carbon_SVGView</item>
+        <item name="carbon_frameLayoutStyle">@style/carbon_FrameLayout</item>
+        <item name="carbon_gridLayoutStyle">@style/carbon_GridLayout</item>
+        <item name="carbon_relativeLayoutStyle">@style/carbon_RelativeLayout</item>
+        <item name="carbon_linearLayoutStyle">@style/carbon_LinearLayout</item>
+        <item name="carbon_drawerLayoutStyle">@style/carbon_DrawerLayout</item>
+        <item name="carbon_snackbarStyle">@style/carbon_Snackbar</item>
+        <item name="carbon_toolbarStyle">@style/carbon_Toolbar</item>
+        <item name="carbon_dividerStyle">@style/carbon_Divider</item>
+        <item name="carbon_progressBarStyle">@style/carbon_ProgressBar</item>
+        <item name="carbon_cardViewStyle">@style/carbon_CardView</item>
+        <item name="carbon_editTextStyle">@style/carbon_EditText</item>
+        <item name="carbon_pagerTabStripStyle">@style/carbon_PagerTabStrip</item>
+        <item name="carbon_checkBoxStyle">@style/carbon_CheckBox</item>
+        <item name="carbon_radioButtonStyle">@style/carbon_RadioButton</item>
+        <item name="carbon_viewPagerStyle">@style/carbon_ViewPager</item>
+        <item name="carbon_recyclerViewStyle">@style/carbon_RecyclerView</item>
+
+        <item name="colorPrimary">#ff213C6B</item>
+        <item name="colorPrimaryDark">#ff162949</item>
+        <item name="colorAccent">#ff9ACE00</item>
+
+        <item name="carbon_colorBackground">@color/carbon_background_dark</item>
+        <item name="carbon_colorBackground_inverse">@color/carbon_background_light</item>
+        <item name="carbon_dividerColor">@color/carbon_divider_dark</item>
+        <item name="carbon_rippleColor">@color/carbon_ripple_dark</item>
+        <item name="carbon_iconColor">@color/carbon_icon_dark</item>
+        <item name="carbon_colorDisabled">@color/carbon_white_30</item>
+        <item name="carbon_colorControl">@color/carbon_white_70</item>
+
+        <item name="carbon_textAppearance_headline">@style/carbon_TextAppearance.Headline.Dark
+        </item>
+        <item name="carbon_textAppearance_title">@style/carbon_TextAppearance.Title.Dark</item>
+        <item name="carbon_textAppearance_subhead">@style/carbon_TextAppearance.Subhead.Dark</item>
+        <item name="carbon_textAppearance_body2">@style/carbon_TextAppearance.Body2.Dark</item>
+        <item name="carbon_textAppearance_body1">@style/carbon_TextAppearance.Body1.Dark</item>
+        <item name="carbon_textAppearance_caption">@style/carbon_TextAppearance.Caption.Dark</item>
+        <item name="carbon_textAppearance_button">@style/carbon_TextAppearance.Button.Dark</item>
+        <item name="carbon_textAppearance_headline_inverse">
+            @style/carbon_TextAppearance.Headline.Light
+        </item>
+        <item name="carbon_textAppearance_title_inverse">@style/carbon_TextAppearance.Title.Light
+        </item>
+        <item name="carbon_textAppearance_subhead_inverse">
+            @style/carbon_TextAppearance.Subhead.Light
+        </item>
+        <item name="carbon_textAppearance_body2_inverse">@style/carbon_TextAppearance.Body2.Light
+        </item>
+        <item name="carbon_textAppearance_body1_inverse">@style/carbon_TextAppearance.Body1.Light
+        </item>
+        <item name="carbon_textAppearance_caption_inverse">
+            @style/carbon_TextAppearance.Caption.Light
+        </item>
+        <item name="carbon_textAppearance_button_inverse">
+            @style/carbon_TextAppearance.Button.Light
+        </item>
+
+        <item name="android:windowBackground">@drawable/carbon_windowbackground_dark</item>
+    </style>
+
+    <style name="carbon_Theme.Dark.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="carbon_Theme.Light" parent="Theme.AppCompat.Light">
+        <item name="carbon_colorError">#ffF44336</item>
+        <item name="carbon_debugMode">false</item>
+
+        <item name="android:buttonStyle">@style/carbon_Button</item>
+        <item name="android:textViewStyle">@style/carbon_TextView</item>
+        <item name="android:listViewStyle">@style/carbon_ListView</item>
+        <item name="android:scrollViewStyle">@style/carbon_ScrollView</item>
+
+        <item name="carbon_horizontalScrollViewStyle">@style/carbon_HorizontalScrollView</item>
+        <item name="carbon_imageViewStyle">@style/carbon_ImageView</item>
+        <item name="carbon_fabStyle">@style/carbon_FloatingActionButton</item>
+        <item name="carbon_svgViewStyle">@style/carbon_SVGView</item>
+        <item name="carbon_frameLayoutStyle">@style/carbon_FrameLayout</item>
+        <item name="carbon_gridLayoutStyle">@style/carbon_GridLayout</item>
+        <item name="carbon_relativeLayoutStyle">@style/carbon_RelativeLayout</item>
+        <item name="carbon_linearLayoutStyle">@style/carbon_LinearLayout</item>
+        <item name="carbon_drawerLayoutStyle">@style/carbon_DrawerLayout</item>
+        <item name="carbon_snackbarStyle">@style/carbon_Snackbar</item>
+        <item name="carbon_toolbarStyle">@style/carbon_Toolbar</item>
+        <item name="carbon_dividerStyle">@style/carbon_Divider</item>
+        <item name="carbon_progressBarStyle">@style/carbon_ProgressBar</item>
+        <item name="carbon_cardViewStyle">@style/carbon_CardView</item>
+        <item name="carbon_editTextStyle">@style/carbon_EditText</item>
+        <item name="carbon_pagerTabStripStyle">@style/carbon_PagerTabStrip</item>
+        <item name="carbon_checkBoxStyle">@style/carbon_CheckBox</item>
+        <item name="carbon_radioButtonStyle">@style/carbon_RadioButton</item>
+        <item name="carbon_viewPagerStyle">@style/carbon_ViewPager</item>
+        <item name="carbon_recyclerViewStyle">@style/carbon_RecyclerView</item>
+
+        <item name="colorPrimary">#ff213C6B</item>
+        <item name="colorPrimaryDark">#ff162949</item>
+        <item name="colorAccent">#ff9ACE00</item>
+
+        <item name="carbon_colorBackground">@color/carbon_background_light</item>
+        <item name="carbon_colorBackground_inverse">@color/carbon_background_dark</item>
+        <item name="carbon_dividerColor">@color/carbon_divider_light</item>
+        <item name="carbon_rippleColor">@color/carbon_ripple_light</item>
+        <item name="carbon_iconColor">@color/carbon_icon_light</item>
+        <item name="carbon_colorDisabled">@color/carbon_black_26</item>
+        <item name="carbon_colorControl">@color/carbon_black_54</item>
+
+        <item name="carbon_textAppearance_headline">@style/carbon_TextAppearance.Headline.Light
+        </item>
+        <item name="carbon_textAppearance_title">@style/carbon_TextAppearance.Title.Light</item>
+        <item name="carbon_textAppearance_subhead">@style/carbon_TextAppearance.Subhead.Light</item>
+        <item name="carbon_textAppearance_body2">@style/carbon_TextAppearance.Body2.Light</item>
+        <item name="carbon_textAppearance_body1">@style/carbon_TextAppearance.Body1.Light</item>
+        <item name="carbon_textAppearance_caption">@style/carbon_TextAppearance.Caption.Light</item>
+        <item name="carbon_textAppearance_button">@style/carbon_TextAppearance.Button.Light</item>
+        <item name="carbon_textAppearance_headline_inverse">
+            @style/carbon_TextAppearance.Headline.Dark
+        </item>
+        <item name="carbon_textAppearance_title_inverse">@style/carbon_TextAppearance.Title.Dark
+        </item>
+        <item name="carbon_textAppearance_subhead_inverse">
+            @style/carbon_TextAppearance.Subhead.Dark
+        </item>
+        <item name="carbon_textAppearance_body2_inverse">@style/carbon_TextAppearance.Body2.Dark
+        </item>
+        <item name="carbon_textAppearance_body1_inverse">@style/carbon_TextAppearance.Body1.Dark
+        </item>
+        <item name="carbon_textAppearance_caption_inverse">
+            @style/carbon_TextAppearance.Caption.Dark
+        </item>
+        <item name="carbon_textAppearance_button_inverse">@style/carbon_TextAppearance.Button.Dark
+        </item>
+
+        <item name="android:windowBackground">@drawable/carbon_windowbackground_light</item>
+    </style>
+
+    <style name="carbon_Theme.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="carbon_Button" parent="@android:style/Widget.Button">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingLeft">@dimen/carbon_padding</item>
+        <item name="android:paddingRight">@dimen/carbon_padding</item>
+        <item name="android:minHeight">36dp</item>
+        <item name="android:minWidth">88dp</item>
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="carbon_elevation">@dimen/carbon_elevationLow</item>
+        <item name="carbon_touchMarginTop">6dp</item>
+        <item name="carbon_touchMarginBottom">6dp</item>
+        <item name="carbon_cornerRadius">2dp</item>
+        <item name="android:textColor">@null</item>
+        <item name="android:textAppearance">?attr/carbon_textAppearance_button_inverse</item>
+    </style>
+
+    <style name="carbon_Button.Flat">
+        <item name="carbon_elevation">@dimen/carbon_elevationFlat</item>
+        <item name="android:background">@null</item>
+        <item name="android:textColor">@null</item>
+        <item name="android:textAppearance">?attr/carbon_textAppearance_button</item>
+    </style>
+
+    <style name="carbon_ToggleButton" parent="@android:style/Widget.Button.Toggle">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:paddingLeft">@dimen/carbon_padding</item>
+        <item name="android:paddingRight">@dimen/carbon_padding</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="carbon_FloatingActionButton">
+        <item name="android:clickable">true</item>
+        <item name="carbon_rippleColor">?attr/carbon_rippleColor</item>
+        <item name="carbon_filterColor">?attr/carbon_iconColor</item>
+        <item name="carbon_inAnimation">pop</item>
+        <item name="carbon_outAnimation">pop</item>
+        <item name="carbon_elevation">@dimen/carbon_elevationHigh</item>
+        <item name="android:background">?attr/colorAccent</item>
+        <item name="android:padding">@dimen/carbon_padding</item>
+        <item name="android:minWidth">@dimen/carbon_fabSize</item>
+        <item name="android:minHeight">@dimen/carbon_fabSize</item>
+    </style>
+
+    <style name="carbon_TextView" parent="@android:style/Widget.TextView">
+        <item name="android:textAppearance">?attr/carbon_textAppearance_body1</item>
+    </style>
+
+    <style name="carbon_StatusBar">
+        <item name="android:background">?attr/colorPrimary</item>
+    </style>
+
+    <style name="carbon_NavigationBar">
+        <item name="android:background">?attr/colorPrimary</item>
+    </style>
+
+    <style name="carbon_SVGView">
+        <item name="carbon_rippleColor">@null</item>
+        <item name="carbon_filterColor">?attr/carbon_iconColor</item>
+        <item name="carbon_inAnimation">fade</item>
+        <item name="carbon_outAnimation">fade</item>
+    </style>
+
+    <style name="carbon_FrameLayout">
+        <item name="carbon_rippleColor">@null</item>
+    </style>
+
+    <style name="carbon_GridLayout">
+        <item name="carbon_rippleColor">@null</item>
+    </style>
+
+    <style name="carbon_RelativeLayout">
+        <item name="carbon_rippleColor">@null</item>
+    </style>
+
+    <style name="carbon_LinearLayout">
+        <item name="carbon_rippleColor">@null</item>
+    </style>
+
+    <style name="carbon_DrawerLayout">
+        <item name="carbon_rippleColor">@null</item>
+    </style>
+
+    <style name="carbon_Snackbar">
+        <item name="carbon_layoutStyle">floating</item>
+        <item name="carbon_inAnimation">fly</item>
+        <item name="carbon_outAnimation">fly</item>
+        <item name="carbon_duration">@integer/carbon_snackbarDuration</item>
+    </style>
+
+    <style name="carbon_Toolbar">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="carbon_elevation">@dimen/carbon_elevationMax</item>
+    </style>
+
+    <style name="carbon_ImageView">
+        <item name="carbon_rippleColor">@null</item>
+        <item name="carbon_rippleStyle">over</item>
+        <item name="carbon_inAnimation">brightnessSaturationFade</item>
+        <item name="carbon_outAnimation">brightnessSaturationFade</item>
+    </style>
+
+    <style name="carbon_ListView" parent="@android:style/Widget.ListView">
+        <item name="android:divider">?attr/carbon_dividerColor</item>
+        <item name="android:dividerHeight">1px</item>
+        <item name="carbon_tint">@null</item>
+    </style>
+
+    <style name="carbon_RecyclerView" parent="@android:style/Widget.ListView">
+        <item name="android:fadingEdge">none</item>
+        <item name="carbon_tint">@null</item>
+    </style>
+
+    <style name="carbon_Divider">
+        <item name="android:background">?attr/carbon_dividerColor</item>
+    </style>
+
+    <style name="carbon_ProgressBar">
+        <item name="carbon_progressStyle">bar_indeterminate</item>
+        <item name="carbon_tint">?attr/colorPrimary</item>
+        <item name="carbon_barWidth">3dp</item>
+        <item name="carbon_inAnimation">progressWidth</item>
+        <item name="carbon_outAnimation">progressWidth</item>
+    </style>
+
+    <style name="carbon_CardView" parent="carbon_LinearLayout">
+        <item name="android:background">?attr/carbon_colorBackground</item>
+        <item name="carbon_elevation">@dimen/carbon_elevationLow</item>
+        <item name="carbon_cornerRadius">2dp</item>
+        <item name="android:layout_margin">@dimen/carbon_paddingHalf</item>
+    </style>
+
+    <style name="carbon_EditText" parent="@android:style/Widget.EditText">
+        <item name="android:textAppearance">?attr/carbon_textAppearance_subhead</item>
+        <item name="carbon_tint">@null</item>
+        <item name="android:background">@null</item>
+        <item name="carbon_floatingLabel">false</item>
+        <item name="android:textCursorDrawable">@null</item>
+    </style>
+
+    <style name="carbon_PagerTabStrip" parent="carbon_HorizontalScrollView">
+        <item name="carbon_tint">?attr/colorAccent</item>
+        <item name="carbon_indicatorWidth">2dp</item>
+        <item name="carbon_fixedTabs">true</item>
+    </style>
+
+    <style name="carbon_ScrollView">
+        <item name="carbon_edgeEffectColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="carbon_HorizontalScrollView">
+        <item name="carbon_edgeEffectColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="carbon_ViewPager">
+        <item name="carbon_edgeEffectColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="carbon_CheckBox" parent="android:Widget.CompoundButton.CheckBox">
+        <item name="android:paddingLeft">@dimen/carbon_padding</item>
+        <item name="carbon_rippleColor">@null</item>
+        <item name="android:textAppearance">?attr/carbon_textAppearance_body1</item>
+        <item name="android:button">@null</item>
+        <item name="android:drawablePadding">@dimen/carbon_paddingHalf</item>
+        <item name="carbon_tint">@null</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="carbon_RadioButton" parent="android:Widget.CompoundButton.RadioButton">
+        <item name="android:paddingLeft">@dimen/carbon_padding</item>
+        <item name="carbon_rippleColor">@null</item>
+        <item name="android:textAppearance">?attr/carbon_textAppearance_body1</item>
+        <item name="android:button">@null</item>
+        <item name="android:drawablePadding">@dimen/carbon_paddingHalf</item>
+        <item name="carbon_tint">@null</item>
+        <item name="android:background">@null</item>
+    </style>
+</resources>

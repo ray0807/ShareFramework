@@ -183,7 +183,7 @@ public class Tools {
 	 */
 	public static boolean validatePhone(String phone) {
 		Pattern p = Pattern
-				.compile("^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$");
+				.compile("^(0|86|17951)?^[1][0-9]{10}$");
 		Matcher matcher = p.matcher(phone);
 		return matcher.matches();
 	}

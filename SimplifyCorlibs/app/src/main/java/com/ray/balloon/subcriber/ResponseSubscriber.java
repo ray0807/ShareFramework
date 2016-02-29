@@ -56,10 +56,10 @@ public class ResponseSubscriber<T> extends Subscriber<T> {
         BaseData data;
         if (t instanceof BaseData) {
             data = (BaseData) t;
-            if (data.status == SUCCESS_STATUS) {
+            if (data.ErrorCode == SUCCESS_STATUS) {
                 success(t);
             } else {
-                operationError(t, data.status, data.msg);
+                operationError(t, data.ErrorCode, data.Msg);
             }
         } else {
             success(t);

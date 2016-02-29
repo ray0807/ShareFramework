@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SimplifyCorlibs.iml" filepath="$PROJECT_DIR$/SimplifyCorlibs.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/carbon/carbon.iml" filepath="$PROJECT_DIR$/carbon/carbon.iml" />
       <module fileurl="file://$PROJECT_DIR$/simplifyCorelibs/simplifyCorelibs.iml" filepath="$PROJECT_DIR$/simplifyCorelibs/simplifyCorelibs.iml" />
     </modules>
   </component>

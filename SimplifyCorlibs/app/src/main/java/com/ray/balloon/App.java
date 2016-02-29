@@ -53,19 +53,19 @@ public class App extends Application {
     public String getDiskCacheDir() {
         String cachePath = null;
         if (sdCardIsAvailable()) {
-            // 内存卡可用时，数据放在/sdcard/Android/data/<application package>/cache中
+            // 内存卡可用时，数据放在/sdcard/Android/Data/<application package>/cache中
             if (hasExternalCacheDir()) {
                 // 2.2版本才有将应用缓存转移到sd卡的功能
                 cachePath = getExternalCacheDir().getPath();
             } else {
                 // 2.2以前我们需要自己构造
-                final String cacheDir = "/Android/data/" + getPackageName()
+                final String cacheDir = "/Android/Data/" + getPackageName()
                         + "/cache/";
                 cachePath = Environment.getExternalStorageDirectory().getPath()
                         + cacheDir;
             }
         } else {
-            // SD卡不可用时，数据放在data/data/<application package>/cache中
+            // SD卡不可用时，数据放在data/Data/<application package>/cache中
             cachePath = getCacheDir().getPath();
         }
         return cachePath;

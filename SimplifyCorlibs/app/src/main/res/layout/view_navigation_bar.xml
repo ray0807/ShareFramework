@@ -9,6 +9,7 @@
         android:layout_width="38dp"
         android:layout_height="match_parent"
         android:gravity="center"
+        android:visibility="gone"
         android:orientation="horizontal" >
 
         <ImageView
@@ -27,38 +28,5 @@
         android:text="@string/app_name"
         android:textColor="@color/white"
         android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/tv_del"
-        android:layout_width="48dp"
-        android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
-        android:gravity="center"
-        android:text="@string/action_delete"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        android:visibility="gone"/>
-    
-    <TextView
-        android:id="@+id/tv_alter"
-        android:layout_width="48dp"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/action_alter"
-        android:textColor="@color/white"
-        android:textSize="15sp" 
-        android:layout_toStartOf="@id/tv_del"
-        android:visibility="gone"/>
-    
-    <TextView
-        android:id="@+id/tv_logout"
-        android:layout_width="78dp"
-        android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
-        android:gravity="center"
-        android:text="@string/action_logout"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        android:visibility="gone"/>
 
 </RelativeLayout>

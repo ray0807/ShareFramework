@@ -6,9 +6,18 @@ public class BaseData implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	public int status;
-	public String msg;
-	public MapData data;
-	public Page page;
+	public int ErrorCode;
+	public String Msg;
+	public MapData Data;
+	public Page CurrentPage;
 
+	@Override
+	public String toString() {
+		return "BaseData{" +
+				"ErrorCode=" + ErrorCode +
+				", Msg='" + Msg + '\'' +
+				", Data=" + Data +
+				", CurrentPage=" + CurrentPage +
+				'}';
+	}
 }

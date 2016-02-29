@@ -1,10 +1,10 @@
 package com.ray.balloon.constants;
 
 public class Urls {
-	public static final String ROOT = "http://43.254.54.251:8089/tuliao/app/";
+	public static final String ROOT = "http://114.215.94.193:8089/";
 	//public static final String ROOT = "http://10.58.175.208:8888/tuliao/app/";
 	
-	public static final String LOGIN = "login.htm";
+	public static final String LOGIN = "login";
 	public static final String GET_VCODE = "getCode.htm";
 	public static final String REGISTER = "doRegister.htm";
 	public static final String UPDATE_PASSWORD = "updatePassword.htm";

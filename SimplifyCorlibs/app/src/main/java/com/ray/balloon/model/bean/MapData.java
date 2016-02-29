@@ -18,7 +18,7 @@ public class MapData implements Serializable {
 	
 	public Order order;
 	
-	public User member;
+	public User CurrentAccount;
 
 	public String code;
 	

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<carbon.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/carbon_toolbarHeight">
+
+    <carbon.widget.SVGView
+        app:carbon_inAnimation="none"
+        app:carbon_outAnimation="none"
+        android:clickable="true"
+        android:id="@+id/carbon_icon"
+        app:carbon_src="@raw/carbon_uparrow"
+        app:carbon_filterColor="?attr/carbon_iconColor"
+        app:carbon_rippleColor="?attr/carbon_rippleColor"
+        app:carbon_rippleStyle="borderless"
+        app:carbon_rippleHotspot="false"
+        android:visibility="gone"
+        android:padding="@dimen/carbon_padding"
+        android:layout_width="56dp"
+        android:layout_height="56dp" />
+
+    <carbon.widget.TextView
+        android:id="@+id/carbon_toolbarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingLeft="@dimen/carbon_padding"
+        android:text=""
+        android:textAppearance="?attr/carbon_textAppearance_title_inverse" />
+
+    <carbon.widget.LinearLayout
+        android:gravity="right"
+        android:orientation="horizontal"
+        android:id="@+id/carbon_toolbarContent"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+</carbon.widget.LinearLayout>
