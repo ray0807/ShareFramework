@@ -1,13 +1,10 @@
 package com.ray.balloon.view.login;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.corelibs.base.BaseActivity;
-import com.corelibs.utils.PreferencesHelper;
-import com.corelibs.utils.ToastMgr;
 import com.ray.balloon.R;
-import com.ray.balloon.model.bean.User;
 import com.ray.balloon.presenter.LoginPresenter;
 import com.ray.balloon.widget.NavigationBar;
 
@@ -58,8 +55,8 @@ public class LoginActivity extends BaseActivity<LoginView, LoginPresenter> imple
 
     @OnClick(R.id.btn_reg)
     protected void register() {
-        Log.i("wanglei", "success: " + PreferencesHelper.getData(User.class));
-        ToastMgr.show("注册");
+        Intent it =new Intent(this,RegisterActivity.class);
+        startActivity(it);
     }
 
 

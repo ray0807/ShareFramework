@@ -8,5 +8,6 @@
     <color name="serach_border">#cccccc</color>
     <color name="main_title">#333</color>
     <color name="white">#FFF</color>
+    <color name="Trans">#0fff</color>
 
 </resources>

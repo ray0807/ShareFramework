@@ -22,7 +22,7 @@ import rx.Subscriber;
  */
 public class ResponseSubscriber<T> extends Subscriber<T> {
 
-    public static final int SUCCESS_STATUS = 1;
+    public static final int SUCCESS_STATUS = 0;
 
     private BaseView view;
 

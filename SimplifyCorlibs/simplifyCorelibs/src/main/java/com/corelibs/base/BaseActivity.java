@@ -1,12 +1,15 @@
 package com.corelibs.base;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 
+import com.corelibs.R;
 import com.corelibs.common.AppManager;
 import com.corelibs.utils.ToastMgr;
 import com.corelibs.views.LoadingDialog;
+import com.corelibs.views.SplideBackLinearLayout;
 import com.trello.rxlifecycle.components.support.RxFragmentActivity;
 
 import butterknife.ButterKnife;
@@ -24,7 +27,7 @@ import butterknife.ButterKnife;
  * Created by Ryan on 2015/12/28.
  */
 public abstract class BaseActivity<V extends BaseView, T extends BaseRxPresenter<V>>
-        extends RxFragmentActivity implements BaseView {
+        extends RxFragmentActivity implements BaseView,SplideBackLinearLayout.BackViewInterface {
 
     protected T presenter;
     private LoadingDialog loadingDialog;
@@ -121,4 +124,31 @@ public abstract class BaseActivity<V extends BaseView, T extends BaseRxPresenter
     public void showToastMessage(String message) {
         showToast(message);
     }
+
+    @Override
+    public void invokeBack() {
+        if(presenter != null) presenter.detachView();
+        presenter = null;
+        AppManager.getAppManager().finishActivity(this);
+    }
+
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.in_left_right, R.anim.out_left_right);
+    }
+
+    @Override
+    public void startActivity(Intent intent) {
+        super.startActivity(intent);
+        overridePendingTransition(R.anim.in_right_left, R.anim.out_right_left);
+    }
+
+    @Override
+    public void startActivityForResult(Intent intent, int requestCode) {
+        super.startActivityForResult(intent, requestCode);
+        overridePendingTransition(R.anim.in_right_left, R.anim.out_right_left);
+    }
+
 }

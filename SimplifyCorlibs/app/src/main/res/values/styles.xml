@@ -1,9 +1,19 @@
 <resources>
+
     <style name="AppTheme" parent="carbon_Theme.Light">
         <item name="colorPrimary">#ff213C6B</item>
         <item name="colorPrimaryDark">#ff162949</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppThemeTrans" parent="AppTheme">
+        <item name="colorPrimary">#ff213C6B</item>
+        <item name="colorPrimaryDark">#ff162949</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/Trans</item>
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 
 

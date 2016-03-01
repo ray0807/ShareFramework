@@ -3,41 +3,35 @@ package com.ray.balloon.presenter;
 import com.corelibs.api.ManagerFactory;
 import com.corelibs.api.ResponseTransformer;
 import com.corelibs.base.BaseRxPresenter;
-import com.corelibs.utils.PreferencesHelper;
 import com.corelibs.utils.Tools;
 import com.ray.balloon.R;
-import com.ray.balloon.authority.AuthorityContext;
-import com.ray.balloon.authority.LoggedIn;
 import com.ray.balloon.model.bean.BaseData;
-import com.ray.balloon.model.manager.LoginManager;
+import com.ray.balloon.model.manager.RegitserManager;
 import com.ray.balloon.subcriber.ResponseSubscriber;
-import com.ray.balloon.view.login.LoginView;
+import com.ray.balloon.view.login.RegisterView;
 
 /**
- * 登录逻辑
- *
- * Created by Ryan on 2015/12/29.
+ * Created by Administrator on 2016/3/1.
  */
-public class LoginPresenter extends BaseRxPresenter<LoginView> {
-    private LoginManager manager;
+public class RegisterPresenter extends BaseRxPresenter<RegisterView> {
+    private RegitserManager manager;
 
     @Override
     protected void onViewAttached() {
-        manager = ManagerFactory.getFactory().getManager(LoginManager.class);
+        manager = ManagerFactory.getFactory().getManager(RegitserManager.class);
     }
 
-    public void login(final String username, final String password) {
+    public void registerSuccess(final String username, final String password) {
         if (!isUserInputValidate(username, password)) return;
 
         getView().showLoadingDialog();
-        manager.login(username, password)
-                .compose(new ResponseTransformer<>(this.<BaseData>bindLifeCycle()))
-                .subscribe(new ResponseSubscriber<BaseData>(getView()) {
+        manager.register(username, password).
+                compose(new ResponseTransformer<>(this.<BaseData>bindLifeCycle())).
+                subscribe(new ResponseSubscriber<BaseData>(getView()) {
+
                     @Override
                     public void success(BaseData baseData) {
-                        PreferencesHelper.saveData(baseData.Data.CurrentAccount);
-                        AuthorityContext.getContext().setAuthority(new LoggedIn());
-                        getView().loginSuccess();
+                        getView().registerSuccess();
                     }
 
                     @Override
@@ -45,7 +39,6 @@ public class LoginPresenter extends BaseRxPresenter<LoginView> {
                         getView().showToastMessage(message);
                     }
                 });
-
     }
 
     private boolean isUserInputValidate(String username, String password) {
@@ -61,5 +54,4 @@ public class LoginPresenter extends BaseRxPresenter<LoginView> {
 
         return true;
     }
-
 }

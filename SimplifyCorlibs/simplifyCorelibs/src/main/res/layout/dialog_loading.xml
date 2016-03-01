@@ -24,7 +24,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp" 
             app:circularWidth="3dp"
-            app:circularColor="#00b4ac"/>
+            app:circularColor="#ff213C6B"/>
 
         <TextView
             android:id="@+id/tv_msg"
