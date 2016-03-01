@@ -20,8 +20,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/carbon_padding"
+            android:inputType="phone"
             android:hint="电话号码"
-            app:carbon_errorMessage="这不是正确的手机号"
+            app:carbon_errorMessage="手机号格式不对"
             app:carbon_floatingLabel="true"
             app:carbon_pattern="^[1][0-9]{10}$" />
 
@@ -32,7 +33,7 @@
             android:layout_margin="@dimen/carbon_padding"
             android:hint="密码"
             android:inputType="textPassword"
-            app:carbon_errorMessage="这不是正确的密码格式"
+            app:carbon_errorMessage="密码格式不对"
             app:carbon_floatingLabel="true"
             app:carbon_pattern="^[0-9_a-zA-Z]{6,20}$" />
 

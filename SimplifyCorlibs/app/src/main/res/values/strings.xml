@@ -112,5 +112,6 @@
     <!--登录-->
     <string name="login_title">登录</string>
     <string name="login_username_no_invalidate">输入手机号不合法</string>
+    <string name="registerTitle">注册</string>
 </resources>
 

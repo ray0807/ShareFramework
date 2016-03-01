@@ -44,6 +44,9 @@
             android:name=".view.login.RegisterActivity"
             android:theme="@style/AppThemeTrans"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.main.MainActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

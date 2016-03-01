@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <carbon.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:title="@string/app_name"
+        android:titleTextColor="@color/white"
+        app:carbon_elevation="@dimen/carbon_elevationMax">
+
+        <carbon.widget.SVGView
+            android:id="@+id/icon2"
+            android:layout_width="@dimen/carbon_toolbarHeight"
+            android:layout_height="@dimen/carbon_toolbarHeight"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="@dimen/carbon_padding"
+            app:carbon_inAnimation="pop"
+            app:carbon_outAnimation="pop"
+            app:carbon_rippleColor="?attr/carbon_rippleColor"
+            app:carbon_rippleStyle="borderless"
+            app:carbon_src="@raw/svg_connect" />
+    </carbon.widget.Toolbar>
+
+</LinearLayout>

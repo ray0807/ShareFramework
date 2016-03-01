@@ -11,8 +11,9 @@ import rx.Observable;
 /**
  * Created by Administrator on 2016/3/1.
  */
-public interface RegitserManager {
+public interface MainManager {
     @FormUrlEncoded
     @POST(Urls.REGISTER)
-    Observable<BaseData> register(@Field("account") String username, @Field("password") String password);
+    Observable<BaseData> getData(@Field("pageSize") String pageSize, @Field("pageNum") String pageNum);
+
 }

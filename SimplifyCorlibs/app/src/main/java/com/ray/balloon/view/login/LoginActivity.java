@@ -6,6 +6,7 @@ import android.os.Bundle;
 import com.corelibs.base.BaseActivity;
 import com.ray.balloon.R;
 import com.ray.balloon.presenter.LoginPresenter;
+import com.ray.balloon.view.main.MainActivity;
 import com.ray.balloon.widget.NavigationBar;
 
 import butterknife.Bind;
@@ -49,7 +50,6 @@ public class LoginActivity extends BaseActivity<LoginView, LoginPresenter> imple
 
     @OnClick(R.id.btn_login)
     protected void login() {
-
         getPresenter().login(et_phone.getText().toString(), et_password.getText().toString());
     }
 
@@ -62,6 +62,7 @@ public class LoginActivity extends BaseActivity<LoginView, LoginPresenter> imple
 
     @Override
     public void loginSuccess() {
-
+        Intent it =new Intent(this,MainActivity.class);
+        startActivity(it);
     }
 }

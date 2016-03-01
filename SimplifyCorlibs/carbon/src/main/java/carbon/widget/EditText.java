@@ -42,7 +42,7 @@ import carbon.internal.TypefaceUtils;
 public class EditText extends android.widget.EditText implements TouchMarginView, AnimatedView, TintedView {
     int dividerPadding;
     int disabledColor = 0x4d000000;
-    int errorColor = 0xffff0000;
+    int errorColor = 0xffdc143c;
     private Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
     private Pattern pattern;
@@ -300,7 +300,7 @@ public class EditText extends android.widget.EditText implements TouchMarginView
             return;
 
         if (drawError)
-            canvas.drawText(errorMessage, getPaddingLeft(), getHeight() - getPaddingBottom() + extraPaddingBottom - 1, errorPaint);
+            canvas.drawText(errorMessage, getPaddingLeft(), getHeight() - getPaddingBottom() + extraPaddingBottom - 3, errorPaint);
 
         if (getHint() != null && showFloatingLabel) {
             String label = getHint().toString();

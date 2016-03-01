@@ -25,9 +25,9 @@
     <dimen name="carbon_translation">2dp</dimen>
     <dimen name="carbon_1dip">1dp</dimen>
 
-    <dimen name="carbon_errorTextSize">12sp</dimen>
-    <dimen name="carbon_labelTextSize">12sp</dimen>
-    <dimen name="carbon_charCounterTextSize">12sp</dimen>
+    <dimen name="carbon_errorTextSize">10sp</dimen>
+    <dimen name="carbon_labelTextSize">10sp</dimen>
+    <dimen name="carbon_charCounterTextSize">10sp</dimen>
 
     <integer name="carbon_snackbarDuration">2000</integer>
 </resources>

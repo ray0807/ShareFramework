@@ -21,8 +21,8 @@ public class RegisterPresenter extends BaseRxPresenter<RegisterView> {
         manager = ManagerFactory.getFactory().getManager(RegitserManager.class);
     }
 
-    public void registerSuccess(final String username, final String password) {
-        if (!isUserInputValidate(username, password)) return;
+    public void registerSuccess(final String username, final String password, final String password1) {
+        if (!isUserInputValidate(username, password,password1)) return;
 
         getView().showLoadingDialog();
         manager.register(username, password).
@@ -41,7 +41,7 @@ public class RegisterPresenter extends BaseRxPresenter<RegisterView> {
                 });
     }
 
-    private boolean isUserInputValidate(String username, String password) {
+    private boolean isUserInputValidate(String username, String password, String password1) {
         if (!Tools.validatePhone(username)) {
             getView().showToastMessage(getString(R.string.login_username_no_invalidate));
             return false;
@@ -49,6 +49,14 @@ public class RegisterPresenter extends BaseRxPresenter<RegisterView> {
 
         if (stringIsNull(password) || password.length() < 6 || password.length() > 16) {
             getView().showToastMessage(getString(R.string.login_password_invalid));
+            return false;
+        }
+        if (stringIsNull(password1) || password1.length() < 6 || password1.length() > 16) {
+            getView().showToastMessage(getString(R.string.login_password_invalid));
+            return false;
+        }
+        if (!password.equals(password1)){
+            getView().showToastMessage(getString(R.string.login_password_same));
             return false;
         }
 
