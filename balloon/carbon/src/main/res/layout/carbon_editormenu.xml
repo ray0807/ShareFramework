@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<carbon.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/carbon_menuContainer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/carbon_padding"
+                            android:visibility="invisible"
+                            app:carbon_inAnimation="fade"
+                            app:carbon_outAnimation="fade">
+
+    <carbon.widget.LinearLayout
+        android:id="@+id/carbon_menuContent"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/carbon_menuHeight"
+        android:background="?attr/carbon_colorBackground"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/carbon_paddingHalf"
+        android:paddingRight="@dimen/carbon_paddingHalf"
+        app:carbon_elevation="@dimen/carbon_elevationFAB">
+
+        <carbon.widget.Button
+            android:id="@+id/carbon_cut"
+            style="@style/carbon_Button.Flat"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:minWidth="0dp"
+            android:paddingLeft="@dimen/carbon_padding"
+            android:paddingRight="@dimen/carbon_padding"/>
+
+        <carbon.widget.Button
+            android:id="@+id/carbon_copy"
+            style="@style/carbon_Button.Flat"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:minWidth="0dp"
+            android:paddingLeft="@dimen/carbon_padding"
+            android:paddingRight="@dimen/carbon_padding"/>
+
+        <carbon.widget.Button
+            android:id="@+id/carbon_paste"
+            style="@style/carbon_Button.Flat"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:minWidth="0dp"
+            android:paddingLeft="@dimen/carbon_padding"
+            android:paddingRight="@dimen/carbon_padding"/>
+
+        <carbon.widget.Button
+            android:id="@+id/carbon_selectAll"
+            style="@style/carbon_Button.Flat"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:minWidth="0dp"
+            android:paddingLeft="@dimen/carbon_padding"
+            android:paddingRight="@dimen/carbon_padding"/>
+    </carbon.widget.LinearLayout>
+</carbon.widget.LinearLayout>

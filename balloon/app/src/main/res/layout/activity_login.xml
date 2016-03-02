@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <carbon.widget.LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <carbon.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:carbon_icon="@null">
+        </carbon.widget.Toolbar>
+
+        <carbon.widget.EditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/carbon_padding"
+            android:hint="电话号码"
+            android:inputType="phone"
+            app:carbon_errorMessage="手机号格式不对"
+            app:carbon_floatingLabel="true"
+            app:carbon_pattern="^[1][0-9]{10}$" />
+
+        <carbon.widget.EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/carbon_padding"
+            android:hint="密码"
+            android:inputType="textPassword"
+            app:carbon_errorMessage="密码格式不对"
+            app:carbon_floatingLabel="true"
+            app:carbon_pattern="^[0-9_a-zA-Z]{6,20}$" />
+
+        <carbon.widget.CheckBox
+            android:id="@+id/remember_enabled"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:checked="true"
+            android:text="记住密码" />
+
+        <carbon.widget.LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <carbon.widget.Button
+                android:id="@+id/btn_login"
+                style="@style/carbon_Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_margin="@dimen/carbon_padding"
+                android:layout_weight="1"
+                android:background="#ffffffff"
+                android:paddingBottom="0dp"
+                android:paddingLeft="@dimen/carbon_padding"
+                android:paddingRight="@dimen/carbon_padding"
+                android:paddingTop="0dp"
+                android:text="登陆"
+                android:textColor="@color/main"
+                android:textSize="18sp"
+                app:carbon_cornerRadius="2dp"
+                app:carbon_elevation="@dimen/carbon_elevationLow"
+                app:carbon_rippleColor="@color/main"
+                app:carbon_touchMarginTop="6dp" />
+            <!--app:carbon_touchMarginBottom="6dp"-->
+            <!--app:carbon_touchMarginLeft="100dp"-->
+            <!--app:carbon_touchMarginRight="100dp"-->
+            <carbon.widget.Button
+                android:id="@+id/btn_reg"
+                style="@style/carbon_Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_margin="@dimen/carbon_padding"
+                android:layout_weight="1"
+                android:background="#ffffffff"
+                android:paddingBottom="0dp"
+                android:paddingLeft="@dimen/carbon_padding"
+                android:paddingRight="@dimen/carbon_padding"
+                android:paddingTop="0dp"
+                android:text="注册"
+                android:textColor="@color/main"
+                android:textSize="18sp"
+                app:carbon_cornerRadius="2dp"
+                app:carbon_elevation="@dimen/carbon_elevationLow"
+                app:carbon_rippleColor="@color/main" />
+            <!--app:carbon_touchMarginBottom="6dp"-->
+            <!--app:carbon_touchMarginLeft="100dp"-->
+            <!--app:carbon_touchMarginRight="100dp"-->
+            <!--app:carbon_touchMarginTop="6dp"-->
+        </carbon.widget.LinearLayout>
+
+    </carbon.widget.LinearLayout>
+
+</LinearLayout>

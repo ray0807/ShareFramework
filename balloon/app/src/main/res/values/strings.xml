@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">气球</string>
+    <!-- dialog参数 -->
+    <string name="dialog_confirm">确认</string>
+    <string name="dialog_cancle">取消</string>
+    <!-- 登录 -->
+    <string name="login_username_empty">用户名不能为空</string>
+    <string name="login_password_invalid">请输入6-16位密码</string>
+    <string name="login_password_same">请输入相同密码</string>
+    <string name="login_success">登录成功</string>
+    <string name="login_title">登录</string>
+    <string name="login_username_no_invalidate">输入手机号不合法</string>
+    <string name="registerTitle">注册</string>
+    <string name="main_title">气球</string>
+    <string name="notice">提示</string>
+    <string name="notice_dialog">您还没有登陆</string>
+</resources>

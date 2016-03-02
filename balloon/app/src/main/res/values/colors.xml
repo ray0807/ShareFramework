@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="main">#ff213C6B</color>
+    <color name="main_selected">#44e887</color>
+    <color name="main_text">#666</color>
+    <color name="bg">#eaeaea</color>
+    <color name="serach_border">#cccccc</color>
+    <color name="main_title">#333</color>
+    <color name="white">#FFF</color>
+    <color name="Trans">#0fff</color>
+
+</resources>
