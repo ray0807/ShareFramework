@@ -1,1 +1,1 @@
-include ':carbon', ':app', ':simplifyCorelibs'
+include ':carbon', ':app', ':simplifyCorelibs', ':taurus_flyplane'

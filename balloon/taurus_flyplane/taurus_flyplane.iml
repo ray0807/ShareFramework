@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id=":simplifyCorelibs" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/.." external.system.id="GRADLE" external.system.module.group="balloon" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+<module external.linked.project.id=":taurus_flyplane" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/.." external.system.id="GRADLE" external.system.module.group="balloon" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="android-gradle" name="Android-Gradle">
       <configuration>
-        <option name="GRADLE_PROJECT_PATH" value=":simplifyCorelibs" />
+        <option name="GRADLE_PROJECT_PATH" value=":taurus_flyplane" />
       </configuration>
     </facet>
     <facet type="android" name="Android">
@@ -71,6 +71,8 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/bundles" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dependency-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/lint" />
@@ -83,24 +85,8 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 23 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="support-v4-23.2.0" level="project" />
-    <orderEntry type="library" exported="" name="rxlifecycle-components-0.4.0" level="project" />
-    <orderEntry type="library" exported="" name="rxbinding-0.3.0" level="project" />
-    <orderEntry type="library" exported="" name="butterknife-7.0.1" level="project" />
-    <orderEntry type="library" exported="" name="retrofit-2.0.0-beta3" level="project" />
-    <orderEntry type="library" exported="" name="converter-gson-2.0.0-beta3" level="project" />
-    <orderEntry type="library" exported="" name="logging-interceptor-3.0.1" level="project" />
-    <orderEntry type="library" exported="" name="rxandroid-1.1.0" level="project" />
-    <orderEntry type="library" exported="" name="rxjava-1.1.0" level="project" />
-    <orderEntry type="library" exported="" name="animated-vector-drawable-23.2.0" level="project" />
-    <orderEntry type="library" exported="" name="support-annotations-23.2.0" level="project" />
-    <orderEntry type="library" exported="" name="support-vector-drawable-23.2.0" level="project" />
-    <orderEntry type="library" exported="" name="okio-1.6.0" level="project" />
-    <orderEntry type="library" exported="" name="appcompat-v7-23.2.0" level="project" />
-    <orderEntry type="library" exported="" name="adapter-rxjava-2.0.0-beta3" level="project" />
-    <orderEntry type="library" exported="" name="library-2.4.0" level="project" />
-    <orderEntry type="library" exported="" name="okhttp-3.0.1" level="project" />
-    <orderEntry type="library" exported="" name="rxlifecycle-0.4.0" level="project" />
-    <orderEntry type="library" exported="" name="gson-2.4" level="project" />
+    <orderEntry type="library" exported="" name="support-annotations-23.1.1" level="project" />
+    <orderEntry type="library" exported="" name="support-v4-23.1.1" level="project" />
+    <orderEntry type="library" exported="" name="appcompat-v7-23.1.1" level="project" />
   </component>
 </module>
