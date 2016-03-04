@@ -6,19 +6,79 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <carbon.widget.LinearLayout
+    <carbon.widget.FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        android:background="@color/white"
         android:orientation="vertical"
         app:carbon_insetColor="?attr/colorPrimary">
 
-        <carbon.widget.Toolbar
-            android:id="@+id/toolbar"
+        <carbon.widget.LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical"
+            app:carbon_insetColor="?attr/colorPrimary">
+
+            <carbon.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:carbon_icon="@null">
+
+                <carbon.widget.ImageView
+                    android:id="@+id/icon_bluetooth"
+                    style="@style/carbon_ImageView.Icon"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:scaleType="centerInside"
+                    app:carbon_inAnimation="pop"
+                    app:carbon_outAnimation="pop"
+                    app:carbon_rippleColor="@color/white"
+                    app:carbon_src="@raw/svg_bluetooth" />
+            </carbon.widget.Toolbar>
+
+            <carbon.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:carbon_headerMinHeight="@dimen/carbon_toolbarHeight"
+                app:carbon_headerParallax="0.5"
+                app:carbon_headerTint="?attr/colorPrimary"
+                app:carbon_overScroll="always" />
+
+
+        </carbon.widget.LinearLayout>
+
+        <carbon.widget.LinearLayout
+            android:id="@+id/powerMenu"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:carbon_icon="@null">
-        </carbon.widget.Toolbar>
-    </carbon.widget.LinearLayout>
+            android:layout_gravity="center"
+            android:background="#ffffffff"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            app:carbon_cornerRadius="2dp"
+            app:carbon_elevation="@dimen/carbon_elevationMax"
+            app:carbon_inAnimation="fly"
+            app:carbon_outAnimation="fly">
+
+            <carbon.beta.TransitionLayout
+                android:id="@+id/transition"
+                android:layout_width="250dp"
+                android:layout_height="280dp">
+
+                <include
+                    layout="@layout/screen_powermenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <include
+                    layout="@layout/screen_turnon_bluetooth"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </carbon.beta.TransitionLayout>
+        </carbon.widget.LinearLayout>
+    </carbon.widget.FrameLayout>
 </com.corelibs.views.SplideBackLinearLayout>

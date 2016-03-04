@@ -4,6 +4,8 @@ package com.ray.balloon.constants;
  * Created by Administrator on 2016/2/25.
  */
 public class Constant {
+
+    public static final String UUID = "00001101-0000-1000-8000-00805F9B34FB";
     // 用户信息
     public final static String USER_INFO = "user_info";
 

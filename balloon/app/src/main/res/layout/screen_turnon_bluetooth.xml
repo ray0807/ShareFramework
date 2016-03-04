@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<carbon.widget.FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/main"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <carbon.widget.ProgressBar
+            android:layout_gravity="center_vertical"
+            android:tag="animate"
+            app:carbon_inAnimation="pop"
+            app:carbon_outAnimation="none"
+            app:carbon_tint="#ffffffff"
+            app:carbon_progressStyle="circular_indeterminate"
+            android:layout_marginRight="@dimen/carbon_padding"
+            android:id="@+id/progress"
+            android:layout_width="@dimen/carbon_smallFabSize"
+            android:layout_height="@dimen/carbon_smallFabSize" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <carbon.widget.TextView
+                android:tag="animate"
+                app:carbon_inAnimation="fly"
+                android:id="@+id/powerOff"
+                android:layout_toRightOf="@id/progress"
+                android:text="蓝牙"
+                android:textAppearance="?attr/carbon_textAppearanceTitleInverse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <carbon.widget.TextView
+                android:tag="animate"
+                app:carbon_inAnimation="fly"
+                android:layout_toRightOf="@id/progress"
+                android:layout_below="@id/powerOff"
+                android:text="正在打开..."
+                android:textAppearance="?attr/carbon_textAppearanceCaptionInverse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</carbon.widget.FrameLayout>
