@@ -7,4 +7,5 @@ import com.corelibs.base.BaseView;
  */
 public interface BluetoothView extends BaseView {
     void connectSuccess();
+    void changeState(int state);
 }

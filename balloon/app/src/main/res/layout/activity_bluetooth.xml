@@ -28,6 +28,17 @@
                 app:carbon_icon="@null">
 
                 <carbon.widget.ImageView
+                    android:id="@+id/icon_bluetooth_message"
+                    style="@style/carbon_ImageView.Icon"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:scaleType="centerInside"
+                    app:carbon_inAnimation="pop"
+                    app:carbon_outAnimation="pop"
+                    app:carbon_rippleColor="@color/white"
+                    app:carbon_src="@raw/svg_message" />
+
+                <carbon.widget.ImageView
                     android:id="@+id/icon_bluetooth"
                     style="@style/carbon_ImageView.Icon"
                     android:layout_width="28dp"
@@ -37,6 +48,7 @@
                     app:carbon_outAnimation="pop"
                     app:carbon_rippleColor="@color/white"
                     app:carbon_src="@raw/svg_bluetooth" />
+
             </carbon.widget.Toolbar>
 
             <carbon.widget.RecyclerView

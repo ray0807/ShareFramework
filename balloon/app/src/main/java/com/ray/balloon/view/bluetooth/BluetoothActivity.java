@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.View;
 
 import com.corelibs.base.BaseActivity;
-import com.corelibs.utils.ToastMgr;
 import com.corelibs.views.SplideBackLinearLayout;
 import com.ray.balloon.R;
 import com.ray.balloon.adapter.BluetoothDevicesAdapter;
@@ -35,9 +34,10 @@ import carbon.widget.Toolbar;
 /**
  * Created by Administrator on 2016/3/3.
  */
-public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPresenter> implements RecyclerViewCallback {
+public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPresenter> implements BluetoothView, RecyclerViewCallback {
     private boolean isTurnOn = false;
     private BluetoothDevicesAdapter adapter;
+    private int postion = -1;
     @Bind(R.id.spl_back)
     SplideBackLinearLayout spl_back;
     @Bind(R.id.toolbar)
@@ -54,6 +54,8 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
     TextView tv_bluetooth_notice;
     @Bind(R.id.recyclerView)
     RecyclerView recyclerView;
+    @Bind(R.id.icon_bluetooth_message)
+    ImageView icon_bluetooth_message;
 
     @Override
     protected int getLayoutId() {
@@ -76,7 +78,11 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
 
 
         isTurnOn = getPresenter().getBluetoothTurnOnState();
-        if (!isTurnOn) showToast("您暂未开启蓝牙");
+        if (!isTurnOn) {
+            showToast("您暂未开启蓝牙");
+        } else {
+            getPresenter().start();
+        }
 
 
     }
@@ -93,6 +99,8 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
     @Override
     protected void onDestroy() {
         unregisterReceiver(mReceiver);
+        getPresenter().cancleDiscovery();
+        getPresenter().stop();
         super.onDestroy();
     }
 
@@ -105,11 +113,17 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
         filter.addAction(BluetoothAdapter.ACTION_SCAN_MODE_CHANGED);
         filter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
         registerReceiver(mReceiver, filter); // 不要忘了之后解除绑定
+
     }
 
     @Override
     protected BluetoothPresenter createPresenter() {
         return new BluetoothPresenter();
+    }
+
+    @OnClick(R.id.icon_bluetooth_message)
+    protected void sendMessage() {
+        getPresenter().write("hello ray".getBytes());
     }
 
     @OnClick(R.id.icon_bluetooth)
@@ -208,9 +222,11 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
 //                    getPresenter().cancleDiscovery();
 
 
-            } else if (BluetoothDevice.ACTION_BOND_STATE_CHANGED.equals(action)) {
-                // 状态改变的广播
-                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+            } else if (BluetoothAdapter.ACTION_STATE_CHANGED.equals(action)) {
+                Log.i("wanglei", "状态改变：" + getPresenter().getBluetoothTurnOnState());
+                if (getPresenter().getBluetoothTurnOnState()) {
+                    getPresenter().start();
+                }
             }
         }
     };
@@ -218,7 +234,7 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
 
     @Override
     public void onItemClick(int position) {
-        ToastMgr.show("您点击了：" + adapter.getItem(position).getName());
+        this.postion = position;
         BluetoothDevice device = adapter.getItem(position);
         // 获取蓝牙设备的连接状态
         int connectState = device.getBondState();
@@ -238,8 +254,18 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
             case BluetoothDevice.BOND_BONDED:
                 Log.i("wanglei", "连接");
                 // 连接
-//                getPresenter().connect(device);
+                getPresenter().connect(device);
                 break;
         }
+    }
+
+    @Override
+    public void connectSuccess() {
+
+    }
+
+    @Override
+    public void changeState(int state) {
+        adapter.setState(state, postion);
     }
 }

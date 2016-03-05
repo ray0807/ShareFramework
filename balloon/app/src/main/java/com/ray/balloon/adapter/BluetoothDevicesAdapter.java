@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import com.ray.balloon.R;
 import com.ray.balloon.callback.RecyclerViewCallback;
+import com.ray.balloon.presenter.BluetoothPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,8 @@ public class BluetoothDevicesAdapter extends RecyclerView.Adapter<BluetoothDevic
     private List<BluetoothDevice> devices = new ArrayList<BluetoothDevice>();
     private RecyclerViewCallback callback;
 
+    private int state = -1;
+    private int clickPosition = -1;
 
     public void addDevice(BluetoothDevice device) {
         this.devices.add(device);
@@ -49,9 +52,25 @@ public class BluetoothDevicesAdapter extends RecyclerView.Adapter<BluetoothDevic
     public void onBindViewHolder(ViewHolder holder, final int position) {
         super.onBindViewHolder(holder, position);
         if (devices.get(position).getBondState() == BluetoothDevice.BOND_BONDED) {
-            holder.tv.setText(devices.get(position).getName() + "\n" + devices.get(position).getAddress() + "\n" + "已连接");
+            holder.tv.setText(devices.get(position).getName() + "\n" + devices.get(position).getAddress() + "\n" + "已绑定");
         } else {
             holder.tv.setText(devices.get(position).getName() + "\n" + devices.get(position).getAddress() + "\n" + "未连接");
+        }
+        if (clickPosition == position) {
+            switch (state) {
+                case BluetoothPresenter.STATE_CONNECTED:
+                    holder.tv.setText(devices.get(position).getName() + "\n" + devices.get(position).getAddress() + "\n" + "已连接");
+                    break;
+                case BluetoothPresenter.STATE_CONNECTING:
+                    holder.tv.setText(devices.get(position).getName() + "\n" + devices.get(position).getAddress() + "\n" + "正在连接");
+                    break;
+                case BluetoothPresenter.STATE_LISTEN:
+                    holder.tv.setText(devices.get(position).getName() + "\n" + devices.get(position).getAddress() + "\n" + "正在监听");
+                    break;
+                case BluetoothPresenter.STATE_NONE:
+                    holder.tv.setText(devices.get(position).getName() + "\n" + devices.get(position).getAddress() + "\n" + "未连接");
+                    break;
+            }
         }
 
         holder.tv.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +81,12 @@ public class BluetoothDevicesAdapter extends RecyclerView.Adapter<BluetoothDevic
                 }
             }
         });
+    }
+
+    public void setState(int state,int position) {
+        this.clickPosition=position;
+        this.state = state;
+        notifyItemChanged(position);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
