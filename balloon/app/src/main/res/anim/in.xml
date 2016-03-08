@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- -100%p:表示从0点向左偏移一个宽度 -->
+<!-- <translate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromYDelta="-100%p"
+    android:toYDelta="0"
+    android:duration="500"
+    android:fillAfter="true" >
+
+</translate> -->
+
+<alpha xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromAlpha="0.0"   
+    android:toAlpha="1.0"   
+    android:duration="0" 
+    android:fillAfter="true" >
+    
+    <!--   
+    fromAlpha:开始时透明度  
+    toAlpha： 结束时透明度  
+    duration：动画持续时间 --> 
+
+</alpha >

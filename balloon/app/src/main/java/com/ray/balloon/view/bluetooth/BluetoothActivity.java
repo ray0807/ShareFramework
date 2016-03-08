@@ -126,6 +126,7 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
         getPresenter().write("hello ray".getBytes());
     }
 
+
     @OnClick(R.id.icon_bluetooth)
     protected void makeTureTurnOn() {
         isTurnOn = getPresenter().getBluetoothTurnOnState();

@@ -15,6 +15,7 @@ import com.ray.balloon.adapter.HomePageTestAdapter;
 import com.ray.balloon.authority.AuthorityContext;
 import com.ray.balloon.presenter.MainPresenter;
 import com.ray.balloon.view.bluetooth.BluetoothActivity;
+import com.ray.balloon.view.bluetoothLE.BLEActivity;
 import com.yalantis.taurus.PullToRefreshView;
 
 import butterknife.Bind;
@@ -39,6 +40,8 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
     FloatingActionButton fab_mine;
     @Bind(R.id.icon_connect)
     ImageView icon_connect;
+    @Bind(R.id.icon_connect_BLE)
+    ImageView icon_connect_BLE;
 
     @Override
     protected int getLayoutId() {
@@ -77,10 +80,21 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
             ToastMgr.show("您已经登陆啦");
         }
     }
+
     @OnClick(R.id.icon_connect)
     protected void connect() {
         if (AuthorityContext.getContext().showPersonCenter(this)) {
-            Intent it =new Intent(this, BluetoothActivity.class);
+            showToast("确认您的设备为蓝牙2.0、3.0");
+            Intent it = new Intent(this, BluetoothActivity.class);
+            startActivity(it);
+        }
+    }
+
+    @OnClick(R.id.icon_connect_BLE)
+    protected void connectBle() {
+        if (AuthorityContext.getContext().showPersonCenter(this)) {
+            showToast("确认您的设备为蓝牙4.0");
+            Intent it = new Intent(this, BLEActivity.class);
             startActivity(it);
         }
     }

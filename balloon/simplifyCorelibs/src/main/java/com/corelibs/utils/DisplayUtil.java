@@ -55,4 +55,27 @@ public class DisplayUtil {
 		int result[] = { width, height };
 		return result;
 	}
+
+
+	/**
+	 * byte数组转换成16进制字符数组
+	 * @param src
+	 * @return
+	 */
+	public static String[] bytesToHexStrings(byte[] src){
+		if (src == null || src.length <= 0) {
+			return null;
+		}
+		String[] str = new String[src.length];
+
+		for (int i = 0; i < src.length; i++) {
+			int v = src[i] & 0xFF;
+			String hv = Integer.toHexString(v);
+			if (hv.length() < 2) {
+				str[i] = "0";
+			}
+			str[i] = hv;
+		}
+		return str;
+	}
 }

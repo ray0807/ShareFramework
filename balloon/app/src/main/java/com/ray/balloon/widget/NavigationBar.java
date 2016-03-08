@@ -16,6 +16,7 @@ public class NavigationBar extends FrameLayout {
 	
 	private Context mContext;
 	private TextView title;
+	private TextView tv_top_right;
 	private LinearLayout back;
 
 
@@ -41,6 +42,7 @@ public class NavigationBar extends FrameLayout {
 		View parent = LayoutInflater.from(mContext).inflate(R.layout.view_navigation_bar, this);
 		title = (TextView) parent.findViewById(R.id.tv_top_title);
 		back = (LinearLayout) parent.findViewById(R.id.ll_back_operate);
+		tv_top_right= (TextView) findViewById(R.id.tv_top_right);
 
 		setBackgroundColor(DEFAULT_COLOR);
 	}
@@ -67,6 +69,11 @@ public class NavigationBar extends FrameLayout {
 	public void setTitleAndColor(String res, int color) {
 		title.setText(res);
 		title.setTextColor(color);
+	}
+	public void setRight(OnClickListener listener,String rightText){
+		tv_top_right.setVisibility(View.VISIBLE);
+		tv_top_right.setText(rightText);
+		tv_top_right.setOnClickListener(listener);
 	}
 	
 
