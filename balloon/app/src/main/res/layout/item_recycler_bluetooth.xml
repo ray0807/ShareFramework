@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<carbon.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/carbon_CardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    app:carbon_rippleColor="@color/main">
 
     <carbon.widget.TextView
         android:id="@+id/tv_item_device"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:textSize="18sp" />
-</LinearLayout>
+        android:gravity="center"
+        android:padding="@dimen/carbon_padding"
+        android:textAppearance="?attr/carbon_textAppearanceTitle" />
+</carbon.widget.CardView>

@@ -7,16 +7,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
 import android.view.View;
 
 import com.corelibs.base.BaseActivity;
+import com.corelibs.utils.ToastMgr;
 import com.corelibs.views.SplideBackLinearLayout;
 import com.ray.balloon.R;
 import com.ray.balloon.adapter.BluetoothDevicesAdapter;
 import com.ray.balloon.callback.RecyclerViewCallback;
 import com.ray.balloon.presenter.BluetoothPresenter;
+import com.ray.balloon.widget.DialogFromBottom;
 
 import java.lang.reflect.Method;
 import java.util.List;
@@ -38,6 +41,7 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
     private boolean isTurnOn = false;
     private BluetoothDevicesAdapter adapter;
     private int postion = -1;
+    private DialogFromBottom dialog;
     @Bind(R.id.spl_back)
     SplideBackLinearLayout spl_back;
     @Bind(R.id.toolbar)
@@ -54,8 +58,37 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
     TextView tv_bluetooth_notice;
     @Bind(R.id.recyclerView)
     RecyclerView recyclerView;
-    @Bind(R.id.icon_bluetooth_message)
-    ImageView icon_bluetooth_message;
+
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case BluetoothPresenter.BLUETOOTH_IS_CONNECTING:
+                    adapter.setState(msg.what, postion);
+                    ToastMgr.show("蓝牙正在连接...");
+                    break;
+                case BluetoothPresenter.BLUETOOTH_IS_CONNECTED:
+                    adapter.setState(msg.what, postion);
+                    dialog.show();
+                    ToastMgr.show("蓝牙已连接");
+                    break;
+                case BluetoothPresenter.BLUETOOTH_IS_CONNECT_FAIL:
+                    adapter.setState(msg.what, postion);
+                    dialog.dismiss();
+                    ToastMgr.show("蓝牙连接失败");
+                    break;
+                case BluetoothPresenter.BLUETOOTH_IS_CONNECT_LOST:
+                    adapter.setState(msg.what, postion);
+                    dialog.dismiss();
+                    ToastMgr.show("蓝牙连接断开");
+                    break;
+                case BluetoothPresenter.BLUETOOTH_RECEIVE_MSG:
+                    ToastMgr.show("蓝牙收到消息：" + msg.obj.toString());
+                    break;
+            }
+            super.handleMessage(msg);
+        }
+    };
 
     @Override
     protected int getLayoutId() {
@@ -71,8 +104,8 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
         toolbar.setIcon(R.drawable.img_back);
         initLayout();
         initReceiver();
-
-        if (!getPresenter().getEnableBluetooth()) {
+        dialog = new DialogFromBottom(this);
+        if (!getPresenter().getEnableBluetooth(handler)) {
             showToast("您的设备暂不支持蓝牙");
         }
 
@@ -90,6 +123,8 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
     private void initLayout() {
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         adapter = new BluetoothDevicesAdapter();
+//        SpaceItemDecoration itemSpace = new SpaceItemDecoration(DisplayUtil.dip2px(this, 10));
+//        recyclerView.addItemDecoration(itemSpace);
         recyclerView.setAdapter(adapter);
         adapter.setOnItemClickListener(this);
 
@@ -119,11 +154,6 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
     @Override
     protected BluetoothPresenter createPresenter() {
         return new BluetoothPresenter();
-    }
-
-    @OnClick(R.id.icon_bluetooth_message)
-    protected void sendMessage() {
-        getPresenter().write("hello ray".getBytes());
     }
 
 
@@ -209,40 +239,40 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
 
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-            Log.i("wanglei", "action:" + action);
             // 发现设备
             if (BluetoothDevice.ACTION_FOUND.equals(action)) {
                 // 从Intent中获取设备对象
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 // 将设备名称和地址放入array adapter，以便在ListView中显示
-                Log.i("wanglei", device.getName() + "\n" + device.getAddress() + "\n" + device.getBondState());
-                adapter.addDevice(device);
-
-//                if (device.getName().equalsIgnoreCase("红米手机")) {
-//                    // 搜索蓝牙设备的过程占用资源比较多，一旦找到需要连接的设备后需要及时关闭搜索
-//                    getPresenter().cancleDiscovery();
 
 
+                if (device.getName().equalsIgnoreCase("balloon")) {
+                    postion = 0;
+                    adapter.addDevice(device, postion);
+                    // 搜索蓝牙设备的过程占用资源比较多，一旦找到需要连接的设备后需要及时关闭搜索
+                    getPresenter().cancleDiscovery();
+                    changeStatusAndConnect(device);
+                } else {
+                    adapter.addDevice(device);
+                }
             } else if (BluetoothAdapter.ACTION_STATE_CHANGED.equals(action)) {
-                Log.i("wanglei", "状态改变：" + getPresenter().getBluetoothTurnOnState());
                 if (getPresenter().getBluetoothTurnOnState()) {
                     getPresenter().start();
                 }
+            } else if (BluetoothDevice.ACTION_BOND_STATE_CHANGED.equals(action)) {
+                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                changeStatusAndConnect(device);
             }
         }
     };
 
 
-    @Override
-    public void onItemClick(int position) {
-        this.postion = position;
-        BluetoothDevice device = adapter.getItem(position);
+    private void changeStatusAndConnect(BluetoothDevice device) {
         // 获取蓝牙设备的连接状态
         int connectState = device.getBondState();
         switch (connectState) {
             // 未配对
             case BluetoothDevice.BOND_NONE:
-                Log.i("wanglei", "配对");
                 // 配对
                 try {
                     Method createBondMethod = BluetoothDevice.class.getMethod("createBond");
@@ -253,11 +283,22 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
                 break;
             // 已配对
             case BluetoothDevice.BOND_BONDED:
-                Log.i("wanglei", "连接");
                 // 连接
                 getPresenter().connect(device);
                 break;
         }
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        this.postion = position;
+        BluetoothDevice device = adapter.getItem(position);
+        if (getPresenter().getState() != BluetoothPresenter.STATE_CONNECTED) {
+            changeStatusAndConnect(device);
+        } else {
+            dialog.show();
+        }
+
     }
 
     @Override
@@ -269,4 +310,9 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
     public void changeState(int state) {
         adapter.setState(state, postion);
     }
+
+    public void sendMessage(String msg) {
+        getPresenter().write(msg.getBytes());
+    }
+
 }

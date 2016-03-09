@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<carbon.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#88000000"
+    android:orientation="vertical">
+
+    <carbon.widget.ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+
+        <carbon.widget.LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+            <carbon.widget.EditText
+                android:id="@+id/et_input_commend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/carbon_padding"
+                android:hint="输入命令"
+                android:inputType="textPassword" />
+            <carbon.widget.Button
+                android:id="@+id/btn_commend1"
+                style="@style/carbon_Button"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="right"
+                android:layout_margin="@dimen/carbon_padding"
+                android:layout_weight="1"
+                android:background="@color/main"
+                android:paddingBottom="0dp"
+                android:paddingLeft="@dimen/carbon_padding"
+                android:paddingRight="@dimen/carbon_padding"
+                android:paddingTop="0dp"
+                android:text="发送命令1"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:carbon_cornerRadius="2dp"
+                app:carbon_elevation="@dimen/carbon_elevationLow"
+                app:carbon_rippleColor="@color/main_text"
+                app:carbon_touchMarginTop="6dp" />
+
+            <carbon.widget.Button
+                android:id="@+id/btn_commend2"
+                style="@style/carbon_Button"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="right"
+                android:layout_margin="@dimen/carbon_padding"
+                android:layout_weight="1"
+                android:background="@color/main"
+                android:paddingBottom="0dp"
+                android:paddingLeft="@dimen/carbon_padding"
+                android:paddingRight="@dimen/carbon_padding"
+                android:paddingTop="0dp"
+                android:text="发送命令2"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:carbon_cornerRadius="2dp"
+                app:carbon_elevation="@dimen/carbon_elevationLow"
+                app:carbon_rippleColor="@color/main_text" />
+
+            <carbon.widget.Button
+                android:id="@+id/btn_commend3"
+                style="@style/carbon_Button"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="right"
+                android:layout_margin="@dimen/carbon_padding"
+                android:layout_weight="1"
+                android:background="@color/main"
+                android:paddingBottom="0dp"
+                android:paddingLeft="@dimen/carbon_padding"
+                android:paddingRight="@dimen/carbon_padding"
+                android:paddingTop="0dp"
+                android:text="发送命令3"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:carbon_cornerRadius="2dp"
+                app:carbon_elevation="@dimen/carbon_elevationLow"
+                app:carbon_rippleColor="@color/main_text" />
+
+            <carbon.widget.Button
+                android:id="@+id/btn_commend4"
+                style="@style/carbon_Button"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="right"
+                android:layout_margin="@dimen/carbon_padding"
+                android:layout_weight="1"
+                android:background="@color/main"
+                android:paddingBottom="0dp"
+                android:paddingLeft="@dimen/carbon_padding"
+                android:paddingRight="@dimen/carbon_padding"
+                android:paddingTop="0dp"
+                android:text="发送命令4"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:carbon_cornerRadius="2dp"
+                app:carbon_elevation="@dimen/carbon_elevationLow"
+                app:carbon_rippleColor="@color/main_text" />
+
+            <carbon.widget.Button
+                android:id="@+id/btn_commend5"
+                style="@style/carbon_Button"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="right"
+                android:layout_margin="@dimen/carbon_padding"
+                android:layout_weight="1"
+                android:background="@color/main"
+                android:paddingBottom="0dp"
+                android:paddingLeft="@dimen/carbon_padding"
+                android:paddingRight="@dimen/carbon_padding"
+                android:paddingTop="0dp"
+                android:text="发送命令5"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:carbon_cornerRadius="2dp"
+                app:carbon_elevation="@dimen/carbon_elevationLow"
+                app:carbon_rippleColor="@color/main_text" />
+
+            <carbon.widget.Button
+                android:id="@+id/btn_commend6"
+                style="@style/carbon_Button"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="right"
+                android:layout_margin="@dimen/carbon_padding"
+                android:layout_weight="1"
+
+                android:background="@color/main"
+                android:paddingBottom="0dp"
+                android:paddingLeft="@dimen/carbon_padding"
+                android:paddingRight="@dimen/carbon_padding"
+                android:paddingTop="0dp"
+                android:text="发送命令6"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:carbon_cornerRadius="2dp"
+                app:carbon_elevation="@dimen/carbon_elevationLow"
+                app:carbon_rippleColor="@color/main_text" />
+        </carbon.widget.LinearLayout>
+    </carbon.widget.ScrollView>
+
+</carbon.widget.RelativeLayout>

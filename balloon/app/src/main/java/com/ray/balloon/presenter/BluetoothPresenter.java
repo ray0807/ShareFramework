@@ -5,10 +5,11 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothServerSocket;
 import android.bluetooth.BluetoothSocket;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 
 import com.corelibs.base.BaseRxPresenter;
-import com.corelibs.utils.ToastMgr;
 import com.ray.balloon.view.bluetooth.BluetoothView;
 
 import java.io.IOException;
@@ -21,6 +22,11 @@ import java.util.UUID;
  */
 public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
     public static final int DISCOVERABLE_DURATION_RESULT_CODE = 999;
+    public static final int BLUETOOTH_IS_CONNECTING = 998;
+    public static final int BLUETOOTH_IS_CONNECTED = 997;
+    public static final int BLUETOOTH_IS_CONNECT_FAIL = 996;
+    public static final int BLUETOOTH_IS_CONNECT_LOST = 995;
+    public static final int BLUETOOTH_RECEIVE_MSG = 994;
     private BluetoothAdapter bluetoothAdapter;
     private boolean D = true;
     private String TAG = "wanglei";
@@ -36,10 +42,16 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
     private ConnectedThread mConnectedThread;
 
     // Unique UUID for this application
+//    private static final UUID MY_UUID_SECURE =
+//            UUID.fromString("fa87c0d0-afac-11de-8a39-0800200c9a66");
+//    private static final UUID MY_UUID_INSECURE =
+//            UUID.fromString("8ce255c0-200a-11e0-ac64-0800200c9a66");
     private static final UUID MY_UUID_SECURE =
-            UUID.fromString("fa87c0d0-afac-11de-8a39-0800200c9a66");
+            UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     private static final UUID MY_UUID_INSECURE =
-            UUID.fromString("8ce255c0-200a-11e0-ac64-0800200c9a66");
+            UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
+
+    private Handler handler;
 
     @Override
     protected void onViewAttached() {
@@ -65,7 +77,8 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
         }
     }
 
-    public boolean getEnableBluetooth() {
+    public boolean getEnableBluetooth(Handler handler) {
+        this.handler=handler;
         return bluetoothAdapter != null ? true : false;
     }
 
@@ -143,7 +156,7 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
      */
     public synchronized void connect(BluetoothDevice device, boolean secure) {
         if (D) Log.d(TAG, "connect to: " + device);
-
+        handler.sendEmptyMessage(BLUETOOTH_IS_CONNECTING);
         // Cancel any thread attempting to make a connection
         if (mState == STATE_CONNECTING) {
             if (mConnectThread != null) {
@@ -229,6 +242,7 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
             mInsecureAcceptThread = null;
         }
         setState(STATE_NONE);
+        bluetoothAdapter.disable();
     }
 
 
@@ -253,7 +267,7 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
      * Indicate that the connection attempt failed and notify the UI Activity.
      */
     private void connectionFailed() {
-
+        handler.sendEmptyMessage(BLUETOOTH_IS_CONNECT_FAIL);
         // Start the service over to restart listening mode
         BluetoothPresenter.this.start();
     }
@@ -262,12 +276,18 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
      * Indicate that the connection was lost and notify the UI Activity.
      */
     private void connectionLost() {
-
+        handler.sendEmptyMessage(BLUETOOTH_IS_CONNECT_LOST);
         // Start the service over to restart listening mode
         BluetoothPresenter.this.start();
     }
 
-
+    /**
+     * 获取状态
+     * @return
+     */
+    public int getState(){
+        return  mState;
+    }
     /**
      * Set the current state of the chat connection
      *
@@ -306,6 +326,8 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
             }
             mmServerSocket = tmp;
         }
+
+
 
         public void run() {
             if (D) Log.d(TAG, "Socket Type: " + mSocketType +
@@ -388,6 +410,7 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
                             MY_UUID_INSECURE);
                 }
             } catch (IOException e) {
+
                 Log.e(TAG, "Socket Type: " + mSocketType + "create() failed", e);
             }
             mmSocket = tmp;
@@ -405,7 +428,9 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
                 // This is a blocking call and will only return on a
                 // successful connection or an exception
                 mmSocket.connect();
+
             } catch (IOException e) {
+
                 // Close the socket
                 try {
                     mmSocket.close();
@@ -446,6 +471,7 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
 
         public ConnectedThread(BluetoothSocket socket, String socketType) {
             Log.d(TAG, "create ConnectedThread: " + socketType);
+            handler.sendEmptyMessage(BLUETOOTH_IS_CONNECTED);
             mmSocket = socket;
             InputStream tmpIn = null;
             OutputStream tmpOut = null;
@@ -472,9 +498,10 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
                 try {
                     // Read from the InputStream
                     bytes = mmInStream.read(buffer);
-                    Log.i("wanglei", "mmInStream:" + new String(buffer, 0, bytes));
-                    ToastMgr.show("收到消息：" + new String(buffer, 0, bytes));
-
+                    Message msg =Message.obtain();
+                    msg.what=BLUETOOTH_RECEIVE_MSG;
+                    msg.obj=new String(buffer, 0, bytes);
+                    handler.sendMessage(msg);
                     // Send the obtained bytes to the UI Activity
                 } catch (IOException e) {
                     Log.e(TAG, "disconnected", e);
