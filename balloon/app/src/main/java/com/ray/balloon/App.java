@@ -42,6 +42,7 @@ public class App extends Application {
         Configuration.enableLoggingNetworkParams();
         Fresco.initialize(this, ImagePipelineConfigFactory.getOkHttpImagePipelineConfig(this));
         checkLoginStatus();
+
     }
 
     private void checkLoginStatus() {
@@ -87,4 +88,6 @@ public class App extends Application {
         }
         return false;
     }
+
+
 }

@@ -5,4 +5,7 @@
     <dimen name="carbon_1dip">1dp</dimen>
     <dimen name="calcButtonSize">60dp</dimen>
     <dimen name="calcButtonSize2">48dp</dimen>
+    <dimen name="home_page_preson_icon_radus">50dp</dimen>
+    <dimen name="gudieview_width">6dp</dimen>
+    <dimen name="gudieview_heigh">6dp</dimen>
 </resources>

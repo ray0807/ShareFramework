@@ -19,13 +19,19 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="20dp"
             android:orientation="vertical">
+
+            <carbon.widget.TextView
+                android:id="@+id/tv_show_retruen"
+                android:layout_width="match_parent"
+                android:layout_height="60dp" />
+
             <carbon.widget.EditText
                 android:id="@+id/et_input_commend"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/carbon_padding"
-                android:hint="输入命令"
-                android:inputType="textPassword" />
+                android:hint="输入命令" />
+
             <carbon.widget.Button
                 android:id="@+id/btn_commend1"
                 style="@style/carbon_Button"

@@ -50,13 +50,11 @@
                 android:id="@+id/refresh_widget"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
                 <ListView
-                    android:id="@+id/list_view"
+                    android:id="@+id/list_main"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:divider="@null"
-                    android:dividerHeight="0dp"
+                    android:divider="@color/carbon_grey_50"
                     android:fadingEdge="none" />
             </com.yalantis.taurus.PullToRefreshView>
 

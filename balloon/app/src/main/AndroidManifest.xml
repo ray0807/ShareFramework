@@ -30,7 +30,9 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <!--蓝牙4.0 BLE-->
-    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
 
 
     <application
@@ -65,7 +67,9 @@
         <activity
             android:name=".view.bluetoothLE.BLEActivity"
             android:screenOrientation="portrait" />
-        <service android:name=".view.bluetoothLE.BluetoothLeService"/>
+
+        <service android:name=".view.bluetoothLE.BluetoothLeService" />
+        <activity android:name=".view.main.ImagePagerActivity" />
     </application>
 
 </manifest>

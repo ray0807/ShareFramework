@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<carbon.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <carbon.widget.LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/carbon_grey_50"
+        android:orientation="vertical">
+
+        <carbon.widget.CardView
+            android:id="@+id/card_main"
+            style="@style/carbon_CardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:carbon_rippleColor="@color/main">
+
+            <carbon.widget.LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <carbon.widget.LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp">
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/item_preson_icon"
+                        android:layout_width="@dimen/home_page_preson_icon_radus"
+                        android:layout_height="@dimen/home_page_preson_icon_radus"
+                        android:layout_gravity="center_horizontal"
+                        android:scaleType="centerInside"
+                        fresco:fadeDuration="300"
+                        fresco:placeholderImage="@drawable/default_icon"
+                        fresco:placeholderImageScaleType="centerInside"
+                        fresco:roundAsCircle="true"
+                        fresco:roundBottomLeft="true"
+                        fresco:roundBottomRight="true"
+                        fresco:roundTopLeft="true"
+                        fresco:roundTopRight="true"
+                        fresco:roundedCornerRadius="180dp"
+                        fresco:roundingBorderColor="@color/carbon_grey_100"
+                        fresco:roundingBorderWidth="2dp" />
+
+                    <carbon.widget.RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/home_page_preson_icon_radus"
+                        android:layout_gravity="center"
+                        android:gravity="center_vertical">
+
+                        <carbon.widget.LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:orientation="vertical">
+
+                            <carbon.widget.TextView
+                                android:id="@+id/tv_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="汪雷"
+                                android:textColor="@color/weibo_yellow"
+                                android:textSize="16sp" />
+
+                            <carbon.widget.TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tv_title"
+                                android:gravity="center"
+                                android:text="4分钟前  来自手机iphone7"
+                                android:textColor="@color/carbon_grey_500"
+                                android:textSize="12sp" />
+                        </carbon.widget.LinearLayout>
+                    </carbon.widget.RelativeLayout>
+                </carbon.widget.LinearLayout>
+
+                <com.ray.balloon.widget.MTextView
+                    android:id="@+id/mtv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/carbon_grey_800"
+                    android:textSize="16sp" />
+
+
+
+                <com.corelibs.views.NoScrollingGridView
+                    android:id="@+id/gv_images"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:clickable="false"
+                    android:horizontalSpacing="5dp"
+                    android:listSelector="@android:color/transparent"
+                    android:numColumns="3"
+                    android:layout_marginBottom="10dp"
+                    android:verticalSpacing="5dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.3dp"
+                    android:background="@color/carbon_grey_200" />
+
+                <carbon.widget.LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <carbon.widget.RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="5dp">
+
+                        <carbon.widget.LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/weibo_icon_redirect" />
+
+                            <carbon.widget.TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="center"
+                                android:text="10"
+                                android:textColor="@color/carbon_grey_500"
+                                android:textSize="14sp" />
+                        </carbon.widget.LinearLayout>
+                    </carbon.widget.RelativeLayout>
+
+                    <View
+                        android:layout_width="0.3dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="6dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/carbon_grey_200" />
+
+                    <carbon.widget.RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="5dp">
+
+                        <carbon.widget.LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/weibo_icon_comment" />
+
+                            <carbon.widget.TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="center"
+                                android:text="10"
+                                android:textColor="@color/carbon_grey_500"
+                                android:textSize="14sp" />
+                        </carbon.widget.LinearLayout>
+                    </carbon.widget.RelativeLayout>
+
+                    <View
+                        android:layout_width="0.3dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="6dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/carbon_grey_200" />
+
+                    <carbon.widget.RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="5dp">
+
+                        <carbon.widget.LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/weibo_icon_unlike" />
+
+                            <carbon.widget.TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="center"
+                                android:text="10"
+                                android:textColor="@color/carbon_grey_500"
+                                android:textSize="14sp" />
+                        </carbon.widget.LinearLayout>
+                    </carbon.widget.RelativeLayout>
+                </carbon.widget.LinearLayout>
+            </carbon.widget.LinearLayout>
+        </carbon.widget.CardView>
+    </carbon.widget.LinearLayout>
+
+
+</carbon.widget.LinearLayout>

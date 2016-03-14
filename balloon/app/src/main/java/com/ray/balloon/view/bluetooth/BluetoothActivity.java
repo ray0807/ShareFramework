@@ -84,6 +84,7 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
                     break;
                 case BluetoothPresenter.BLUETOOTH_RECEIVE_MSG:
                     ToastMgr.show("蓝牙收到消息：" + msg.obj.toString());
+                    dialog.setText(msg.obj.toString());
                     break;
             }
             super.handleMessage(msg);

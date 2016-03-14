@@ -9,5 +9,6 @@
     <color name="main_title">#333</color>
     <color name="white">#FFF</color>
     <color name="Trans">#0fff</color>
-
+    <color name="weibo_yellow">#ff9900</color>
+    <color name="bg_no_photo">#EEEEEE</color>
 </resources>

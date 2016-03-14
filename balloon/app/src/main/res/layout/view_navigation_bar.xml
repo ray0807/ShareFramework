@@ -8,7 +8,7 @@
         android:id="@+id/ll_back_operate"
         android:layout_width="38dp"
         android:layout_height="match_parent"
-        android:gravity="center"
+        android:layout_centerVertical="true"
         android:orientation="horizontal"
         android:visibility="gone">
 

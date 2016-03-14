@@ -5,13 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
+import android.widget.AbsListView;
 import android.widget.ListView;
 
 import com.corelibs.base.BaseActivity;
 import com.corelibs.common.AppManager;
 import com.corelibs.utils.ToastMgr;
 import com.ray.balloon.R;
-import com.ray.balloon.adapter.HomePageTestAdapter;
+import com.ray.balloon.adapter.HomePageMainAdapter;
 import com.ray.balloon.authority.AuthorityContext;
 import com.ray.balloon.presenter.MainPresenter;
 import com.ray.balloon.view.bluetooth.BluetoothActivity;
@@ -27,10 +28,10 @@ import carbon.widget.Toolbar;
 /**
  * Created by Administrator on 2016/2/25.
  */
-public class MainActivity extends BaseActivity<MainView, MainPresenter> implements MainView {
-    @Bind(R.id.list_view)
-    ListView list_view;
+public class MainActivity extends BaseActivity<MainView, MainPresenter> implements MainView, PullToRefreshView.OnRefreshListener {
 
+    @Bind(R.id.list_main)
+    ListView list_main;
     @Bind(R.id.refresh_widget)
     PullToRefreshView mRefreshLayout;
 
@@ -52,15 +53,19 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
     protected void init(Bundle savedInstanceState) {
         toolbar.setText(R.string.main_title);
         toolbar.setBackgroundColor(getResources().getColor(R.color.main));
-
-        mRefreshLayout.setRefreshing(true);
-        mRefreshLayout.postDelayed(new Runnable() {
+        list_main.setAdapter(new HomePageMainAdapter(this));
+        mRefreshLayout.setOnRefreshListener(this);
+        list_main.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
-            public void run() {
-                mRefreshLayout.setRefreshing(false);
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+
             }
-        }, 3000);
-        list_view.setAdapter(new HomePageTestAdapter(this));
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+            }
+        });
 
     }
 
@@ -135,5 +140,16 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
         } else {
             return super.onKeyUp(keyCode, event);
         }
+    }
+
+    @Override
+    public void onRefresh() {
+        ToastMgr.show("可以刷新数据了");
+        mRefreshLayout.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mRefreshLayout.setRefreshing(false);
+            }
+        }, 3000);
     }
 }

@@ -40,4 +40,5 @@ dependencies {
     compile 'com.facebook.fresco:imagepipeline:0.5.0'
     compile 'com.facebook.fresco:imagepipeline-okhttp:0.5.0'
     compile project(':taurus_flyplane')
+
 }
