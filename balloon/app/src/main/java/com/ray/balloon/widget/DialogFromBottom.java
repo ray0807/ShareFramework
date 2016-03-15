@@ -84,7 +84,7 @@ public class DialogFromBottom implements View.OnClickListener {
                     ToastMgr.show("请输入命令");
                     return;
                 }
-                activity.sendMessage(et_input_commend.getText().toString());
+                activity.sendMessage("[<>" + et_input_commend.getText().toString() + "]");
                 break;
         }
     }

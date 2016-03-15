@@ -2,22 +2,25 @@ package com.ray.balloon.view.main;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Animatable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.corelibs.base.BaseActivity;
 import com.corelibs.base.BaseRxPresenter;
-import com.corelibs.utils.DisplayUtil;
-import com.corelibs.utils.ViewHolder;
-import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder;
+import com.facebook.drawee.controller.BaseControllerListener;
+import com.facebook.imagepipeline.image.ImageInfo;
 import com.ray.balloon.R;
+import com.ray.balloon.widget.phoneview.MultiTouchViewPager;
+import com.ray.balloon.widget.phoneview.phonedraweeview.OnPhotoTapListener;
+import com.ray.balloon.widget.phoneview.phonedraweeview.PhotoDraweeView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +39,6 @@ public class ImagePagerActivity extends BaseActivity {
     private static ImagePagerActivity activity;
 
 
-
     public static void startImagePagerActivity(Context context, List<String> imgUrls, int position) {
         Intent intent = new Intent(context, ImagePagerActivity.class);
         intent.putStringArrayListExtra(INTENT_IMGURLS, new ArrayList<String>(imgUrls));
@@ -51,16 +53,19 @@ public class ImagePagerActivity extends BaseActivity {
 
     @Override
     protected void init(Bundle savedInstanceState) {
-        ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+
+
         activity = this;
         guideGroup = (LinearLayout) findViewById(R.id.guideGroup);
 
         int startPos = getIntent().getIntExtra(INTENT_POSITION, 0);
         ArrayList<String> imgUrls = getIntent().getStringArrayListExtra(INTENT_IMGURLS);
 
-        ImageAdapter mAdapter = new ImageAdapter(this);
-        mAdapter.setDatas(imgUrls);
-        viewPager.setAdapter(mAdapter);
+        MultiTouchViewPager viewPager = (MultiTouchViewPager) findViewById(R.id.pager);
+        DraweePagerAdapter adapter = new DraweePagerAdapter();
+        adapter.setDatas(imgUrls);
+        viewPager.setAdapter(adapter);
+
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override
@@ -106,48 +111,23 @@ public class ImagePagerActivity extends BaseActivity {
         }
     }
 
-    private static class ImageAdapter extends PagerAdapter {
 
+    public class DraweePagerAdapter extends PagerAdapter {
         private List<String> datas = new ArrayList<String>();
-        private LayoutInflater inflater;
-        private Context context;
 
         public void setDatas(List<String> datas) {
             if (datas != null)
                 this.datas = datas;
         }
 
-        public ImageAdapter(Context context) {
-            this.context = context;
-            this.inflater = LayoutInflater.from(context);
-        }
-
         @Override
         public int getCount() {
-            if (datas == null) return 0;
             return datas.size();
         }
 
-
         @Override
-        public Object instantiateItem(ViewGroup container, final int position) {
-
-            View view = inflater.inflate(R.layout.item_pager_image, container, false);
-            if (view != null) {
-                SimpleDraweeView item_show_images = ViewHolder.get(view, R.id.item_show_images);
-                item_show_images.getLayoutParams().width = DisplayUtil.getScreenWidth(context);
-                final String imgurl = datas.get(position);
-                item_show_images.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        activity.finish();
-                    }
-                });
-                item_show_images.setImageURI(Uri.parse(imgurl));
-
-                container.addView(view, 0);
-            }
-            return view;
+        public boolean isViewFromObject(View view, Object object) {
+            return view == object;
         }
 
         @Override
@@ -156,19 +136,37 @@ public class ImagePagerActivity extends BaseActivity {
         }
 
         @Override
-        public boolean isViewFromObject(View view, Object object) {
-            return view.equals(object);
+        public Object instantiateItem(ViewGroup viewGroup, int position) {
+            final PhotoDraweeView photoDraweeView = new PhotoDraweeView(viewGroup.getContext());
+            PipelineDraweeControllerBuilder controller = Fresco.newDraweeControllerBuilder();
+            controller.setUri(Uri.parse(datas.get(position)));
+            controller.setOldController(photoDraweeView.getController());
+            controller.setControllerListener(new BaseControllerListener<ImageInfo>() {
+                @Override
+                public void onFinalImageSet(String id, ImageInfo imageInfo, Animatable animatable) {
+                    super.onFinalImageSet(id, imageInfo, animatable);
+                    if (imageInfo == null) {
+                        return;
+                    }
+                    photoDraweeView.update(imageInfo.getWidth(), imageInfo.getHeight());
+                }
+            });
+            photoDraweeView.setController(controller.build());
+
+            try {
+                viewGroup.addView(photoDraweeView, ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            photoDraweeView.setOnPhotoTapListener(new OnPhotoTapListener() {
+                @Override
+                public void onPhotoTap(View view, float x, float y) {
+                    activity.finish();
+                }
+            });
+
+            return photoDraweeView;
         }
-
-        @Override
-        public void restoreState(Parcelable state, ClassLoader loader) {
-        }
-
-        @Override
-        public Parcelable saveState() {
-            return null;
-        }
-
-
     }
 }

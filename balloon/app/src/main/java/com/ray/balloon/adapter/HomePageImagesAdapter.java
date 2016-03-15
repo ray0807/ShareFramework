@@ -9,6 +9,8 @@ import android.widget.BaseAdapter;
 
 import com.corelibs.utils.DisplayUtil;
 import com.corelibs.utils.ViewHolder;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.ray.balloon.R;
 
@@ -24,7 +26,6 @@ public class HomePageImagesAdapter extends BaseAdapter {
     private Context context;
     private int screenWidth = 0;
     final List<String> photos = new ArrayList<>();
-
 
     public HomePageImagesAdapter(Context context) {
         this.context = context;
@@ -58,13 +59,22 @@ public class HomePageImagesAdapter extends BaseAdapter {
         SimpleDraweeView item_child_iamge = ViewHolder.get(view, R.id.item_child_iamge);
         item_child_iamge.getLayoutParams().width = (screenWidth - DisplayUtil.dip2px(context, 50)) / 3;
         item_child_iamge.setAspectRatio(1);
-        item_child_iamge.setImageURI(Uri.parse(photos.get(position)));
+
+        if (photos.get(position).endsWith(".gif")) {
+            DraweeController draweeController = Fresco.newDraweeControllerBuilder().setUri(Uri.parse(photos.get(position)))
+                    .setAutoPlayAnimations(false).build();
+            item_child_iamge.setController(draweeController);
+        } else {
+            item_child_iamge.setImageURI(Uri.parse(photos.get(position)));
+        }
+
 
         if (!views.contains(item_child_iamge)) {
             views.add(item_child_iamge);
         }
         return view;
     }
+
 
     private List<SimpleDraweeView> views = new ArrayList<>();
 
