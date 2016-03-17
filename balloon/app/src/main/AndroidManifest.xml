@@ -67,6 +67,9 @@
         <activity
             android:name=".view.bluetoothLE.BLEActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.weibodetail.WeiboDetailsActivity"
+            android:screenOrientation="portrait" />
 
         <service android:name=".view.bluetoothLE.BluetoothLeService" />
         <activity android:name=".view.main.ImagePagerActivity" />

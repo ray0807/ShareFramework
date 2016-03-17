@@ -16,7 +16,7 @@
     <string name="main_title">气球</string>
     <string name="notice">提示</string>
     <string name="notice_dialog">您还没有登陆</string>
-    <string name="bluetooth_title">连接蓝牙设备</string>
+    <string name="bluetooth_title">蓝牙设备</string>
     <string name="bluetooth_notice_on">确定开启蓝牙</string>
     <string name="bluetooth_is_on">蓝牙已经打开</string>
 </resources>

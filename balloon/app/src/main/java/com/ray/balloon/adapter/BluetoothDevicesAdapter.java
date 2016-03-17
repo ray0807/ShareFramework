@@ -31,16 +31,18 @@ public class BluetoothDevicesAdapter extends RecyclerView.Adapter<BluetoothDevic
     private int state = -1;
     private int clickPosition = -1;
 
+    private BluetoothDevice clickDevice;
+
     public void addDevice(BluetoothDevice device) {
-        if (devices.contains(device)){
-            return;
+        if (devices.contains(device)) {
+            devices.clear();
         }
         this.devices.add(device);
         notifyDataSetChanged();
     }
 
     public void addDevice(BluetoothDevice device, int index) {
-        if (devices.contains(device)){
+        if (devices.contains(device)) {
             return;
         }
         this.devices.add(device);
@@ -96,16 +98,17 @@ public class BluetoothDevicesAdapter extends RecyclerView.Adapter<BluetoothDevic
             @Override
             public void onClick(View v) {
                 if (callback != null) {
-                    callback.onItemClick(position);
+                    callback.onItemClick(getItem(position));
                 }
             }
         });
     }
 
-    public void setState(int state, int position) {
-        this.clickPosition = position;
+    public void setState(int state, BluetoothDevice clickDevice) {
+        this.clickDevice = clickDevice;
         this.state = state;
-        notifyItemChanged(position);
+        clickPosition = devices.indexOf(clickDevice);
+        notifyItemChanged(clickPosition);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

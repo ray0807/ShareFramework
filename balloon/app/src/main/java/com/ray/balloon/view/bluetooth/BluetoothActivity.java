@@ -9,17 +9,17 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.View;
 
 import com.corelibs.base.BaseActivity;
 import com.corelibs.utils.ToastMgr;
 import com.corelibs.views.SplideBackLinearLayout;
 import com.ray.balloon.R;
-import com.ray.balloon.adapter.BluetoothDevicesAdapter;
 import com.ray.balloon.callback.RecyclerViewCallback;
 import com.ray.balloon.presenter.BluetoothPresenter;
 import com.ray.balloon.widget.DialogFromBottom;
+import com.ray.balloon.widget.DialogSelecteDevices;
 
 import java.lang.reflect.Method;
 import java.util.List;
@@ -30,8 +30,6 @@ import carbon.beta.TransitionLayout;
 import carbon.widget.FrameLayout;
 import carbon.widget.ImageView;
 import carbon.widget.LinearLayout;
-import carbon.widget.RecyclerView;
-import carbon.widget.TextView;
 import carbon.widget.Toolbar;
 
 /**
@@ -39,9 +37,10 @@ import carbon.widget.Toolbar;
  */
 public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPresenter> implements BluetoothView, RecyclerViewCallback {
     private boolean isTurnOn = false;
-    private BluetoothDevicesAdapter adapter;
+
     private int postion = -1;
     private DialogFromBottom dialog;
+    private DialogSelecteDevices dialogSelecteDevices;
     @Bind(R.id.spl_back)
     SplideBackLinearLayout spl_back;
     @Bind(R.id.toolbar)
@@ -54,33 +53,32 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
     TransitionLayout transitionLayout;
     @Bind(R.id.ll_turn_on)
     LinearLayout ll_turn_on;
-    @Bind(R.id.tv_bluetooth_notice)
-    TextView tv_bluetooth_notice;
-    @Bind(R.id.recyclerView)
-    RecyclerView recyclerView;
+
+    private BluetoothDevice clickDevice;
+
 
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case BluetoothPresenter.BLUETOOTH_IS_CONNECTING:
-                    adapter.setState(msg.what, postion);
-                    ToastMgr.show("蓝牙正在连接...");
+                    dialogSelecteDevices.setState(msg.what, clickDevice);
+                    toolbar.setText("蓝牙设备(正在连接...)");
                     break;
                 case BluetoothPresenter.BLUETOOTH_IS_CONNECTED:
-                    adapter.setState(msg.what, postion);
+                    dialogSelecteDevices.setState(msg.what, clickDevice);
                     dialog.show();
-                    ToastMgr.show("蓝牙已连接");
+                    toolbar.setText("蓝牙设备(已连接)");
                     break;
                 case BluetoothPresenter.BLUETOOTH_IS_CONNECT_FAIL:
-                    adapter.setState(msg.what, postion);
+                    dialogSelecteDevices.setState(msg.what, clickDevice);
                     dialog.dismiss();
-                    ToastMgr.show("蓝牙连接失败");
+                    toolbar.setText("蓝牙设备(连接失败)");
                     break;
                 case BluetoothPresenter.BLUETOOTH_IS_CONNECT_LOST:
-                    adapter.setState(msg.what, postion);
+                    dialogSelecteDevices.setState(msg.what, clickDevice);
                     dialog.dismiss();
-                    ToastMgr.show("蓝牙连接断开");
+                    toolbar.setText("蓝牙设备(断开)");
                     break;
                 case BluetoothPresenter.BLUETOOTH_RECEIVE_MSG:
                     ToastMgr.show("蓝牙收到消息：" + msg.obj.toString());
@@ -100,6 +98,8 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
     protected void init(Bundle savedInstanceState) {
         spl_back.setBackListener(this);
         toolbar.setText(R.string.bluetooth_title);
+
+        spl_back.setBackListener(this);
 
         toolbar.setBackgroundColor(getResources().getColor(R.color.main));
         toolbar.setIcon(R.drawable.img_back);
@@ -122,21 +122,19 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
     }
 
     private void initLayout() {
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        adapter = new BluetoothDevicesAdapter();
-//        SpaceItemDecoration itemSpace = new SpaceItemDecoration(DisplayUtil.dip2px(this, 10));
-//        recyclerView.addItemDecoration(itemSpace);
-        recyclerView.setAdapter(adapter);
-        adapter.setOnItemClickListener(this);
-
+        dialogSelecteDevices = new DialogSelecteDevices(this);
+        dialogSelecteDevices.setOnItemClick(this);
     }
 
 
     @Override
     protected void onDestroy() {
         unregisterReceiver(mReceiver);
-        getPresenter().cancleDiscovery();
-        getPresenter().stop();
+        if (getPresenter() != null) {
+            getPresenter().cancleDiscovery();
+            getPresenter().stop();
+        }
+
         super.onDestroy();
     }
 
@@ -162,30 +160,31 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
     protected void makeTureTurnOn() {
         isTurnOn = getPresenter().getBluetoothTurnOnState();
         if (isTurnOn) {
-            tv_bluetooth_notice.setText(R.string.bluetooth_is_on);
-        }
-
-        if (powerMenu.getVisibility() == View.VISIBLE)
-            return;
-        transitionLayout.setCurrentChild(0);
-        final List<View> viewsWithTag = ((LinearLayout) transitionLayout.getChildAt(0)).findViewsWithTag("animate");
-        for (int i = 0; i < viewsWithTag.size(); i++)
-            viewsWithTag.get(i).setVisibility(View.INVISIBLE);
-        powerMenu.setVisibility(View.VISIBLE);
-        icon_bluetooth.getHandler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i < viewsWithTag.size(); i++) {
-                    final int finalI = i;
-                    icon_bluetooth.getHandler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            viewsWithTag.get(finalI).setVisibility(View.VISIBLE);
-                        }
-                    }, i * 40);
+            //已经打开
+            dialogSelecteDevices.show();
+        } else {
+            if (powerMenu.getVisibility() == View.VISIBLE)
+                return;
+            transitionLayout.setCurrentChild(0);
+            final List<View> viewsWithTag = ((LinearLayout) transitionLayout.getChildAt(0)).findViewsWithTag("animate");
+            for (int i = 0; i < viewsWithTag.size(); i++)
+                viewsWithTag.get(i).setVisibility(View.INVISIBLE);
+            powerMenu.setVisibility(View.VISIBLE);
+            icon_bluetooth.getHandler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    for (int i = 0; i < viewsWithTag.size(); i++) {
+                        final int finalI = i;
+                        icon_bluetooth.getHandler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                viewsWithTag.get(finalI).setVisibility(View.VISIBLE);
+                            }
+                        }, i * 40);
+                    }
                 }
-            }
-        }, 200);
+            }, 200);
+        }
 
 
     }
@@ -246,15 +245,16 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 // 将设备名称和地址放入array adapter，以便在ListView中显示
 
-
+                Log.i("wanglei", "device:" + device.getName());
+                dialogSelecteDevices.setDevice(device);
                 if (device.getName().equalsIgnoreCase("balloon")) {
                     postion = 0;
-                    adapter.addDevice(device, postion);
+//                    adapter.addDevice(device, postion);
                     // 搜索蓝牙设备的过程占用资源比较多，一旦找到需要连接的设备后需要及时关闭搜索
                     getPresenter().cancleDiscovery();
                     changeStatusAndConnect(device);
                 } else {
-                    adapter.addDevice(device);
+//                    adapter.addDevice(device);
                 }
             } else if (BluetoothAdapter.ACTION_STATE_CHANGED.equals(action)) {
                 if (getPresenter().getBluetoothTurnOnState()) {
@@ -291,14 +291,15 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
     }
 
     @Override
-    public void onItemClick(int position) {
-        this.postion = position;
-        BluetoothDevice device = adapter.getItem(position);
-        if (getPresenter().getState() != BluetoothPresenter.STATE_CONNECTED) {
-            changeStatusAndConnect(device);
-        } else {
-            dialog.show();
-        }
+    public void onItemClick(BluetoothDevice device) {
+//        if (clickDevice != null && clickDevice.equals(device))
+//            return;
+        this.clickDevice = device;
+//        if (getPresenter().getState() != BluetoothPresenter.STATE_CONNECTED) {
+        changeStatusAndConnect(device);
+//        } else {
+//            dialog.show();
+//        }
 
     }
 
@@ -309,7 +310,7 @@ public class BluetoothActivity extends BaseActivity<BluetoothView, BluetoothPres
 
     @Override
     public void changeState(int state) {
-        adapter.setState(state, postion);
+//        adapter.setState(state, postion);
     }
 
     public void sendMessage(String msg) {

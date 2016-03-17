@@ -60,7 +60,7 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
     }
 
     public void connect(BluetoothDevice device) {
-        connect(device, true);
+        connect(device, false);
     }
 
     public void turnOn(Activity activity) {
@@ -78,7 +78,7 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
     }
 
     public boolean getEnableBluetooth(Handler handler) {
-        this.handler=handler;
+        this.handler = handler;
         return bluetoothAdapter != null ? true : false;
     }
 
@@ -95,6 +95,7 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
         if (bluetoothAdapter == null) {
             return;
         }
+        Log.i("wanglei","startDiscovery");
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -110,7 +111,10 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
     }
 
     public void cancleDiscovery() {
-        bluetoothAdapter.cancelDiscovery();
+        Log.i("wanglei","cancleDiscovery");
+        if (bluetoothAdapter != null) {
+            bluetoothAdapter.cancelDiscovery();
+        }
     }
 
 
@@ -119,6 +123,7 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
      * session in listening (server) mode. Called by the Activity onResume()
      */
     public synchronized void start() {
+        startDiscovery();
 
         if (D) Log.d(TAG, "start");
 
@@ -209,6 +214,11 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
             mInsecureAcceptThread = null;
         }
 
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         // Start the thread to manage the connection and perform transmissions
         mConnectedThread = new ConnectedThread(socket, socketType);
         mConnectedThread.start();
@@ -242,7 +252,10 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
             mInsecureAcceptThread = null;
         }
         setState(STATE_NONE);
-        bluetoothAdapter.disable();
+        if (bluetoothAdapter != null) {
+            bluetoothAdapter.disable();
+        }
+
     }
 
 
@@ -267,6 +280,7 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
      * Indicate that the connection attempt failed and notify the UI Activity.
      */
     private void connectionFailed() {
+
         handler.sendEmptyMessage(BLUETOOTH_IS_CONNECT_FAIL);
         // Start the service over to restart listening mode
         BluetoothPresenter.this.start();
@@ -283,11 +297,13 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
 
     /**
      * 获取状态
+     *
      * @return
      */
-    public int getState(){
-        return  mState;
+    public int getState() {
+        return mState;
     }
+
     /**
      * Set the current state of the chat connection
      *
@@ -328,7 +344,6 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
         }
 
 
-
         public void run() {
             if (D) Log.d(TAG, "Socket Type: " + mSocketType +
                     "BEGIN mAcceptThread" + this);
@@ -341,7 +356,9 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
                 try {
                     // This is a blocking call and will only return on a
                     // successful connection or an exception
-                    socket = mmServerSocket.accept();
+                    if (mmServerSocket != null) {
+                        socket = mmServerSocket.accept();
+                    }
                 } catch (IOException e) {
                     Log.e(TAG, "Socket Type: " + mSocketType + "accept() failed", e);
                     break;
@@ -498,9 +515,9 @@ public class BluetoothPresenter extends BaseRxPresenter<BluetoothView> {
                 try {
                     // Read from the InputStream
                     bytes = mmInStream.read(buffer);
-                    Message msg =Message.obtain();
-                    msg.what=BLUETOOTH_RECEIVE_MSG;
-                    msg.obj=new String(buffer, 0, bytes);
+                    Message msg = Message.obtain();
+                    msg.what = BLUETOOTH_RECEIVE_MSG;
+                    msg.obj = new String(buffer, 0, bytes);
                     handler.sendMessage(msg);
                     // Send the obtained bytes to the UI Activity
                 } catch (IOException e) {
