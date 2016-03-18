@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="main">#ff213C6B</color>
-    <color name="main_selected">#44e887</color>
+    <color name="main">@color/carbon_cyan_400</color>
+    <color name="main_selected">@color/carbon_cyan_a200</color>
     <color name="main_text">#666</color>
     <color name="bg">#eaeaea</color>
     <color name="serach_border">#cccccc</color>
@@ -11,4 +11,12 @@
     <color name="Trans">#0fff</color>
     <color name="weibo_yellow">#ff9900</color>
     <color name="bg_no_photo">#EEEEEE</color>
+
+    <color name="tumblr_primary">#36465D</color>
+    <color name="tumblr_orange">#F2992E</color>
+    <color name="tumblr_green">#56BC8A</color>
+    <color name="tumblr_white">#FFFFFF</color>
+    <color name="tumblr_grey">#748089</color>
+    <color name="tumblr_blue">#4AA8D8</color>
+    <color name="tumblr_red">#D95E40</color>
 </resources>

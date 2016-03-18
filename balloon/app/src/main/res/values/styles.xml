@@ -4,8 +4,8 @@
     <style name="AppTheme" parent="carbon_Theme.Light.NoActionBar">
         <item name="android:windowTranslucentStatus">true</item>
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#ff3F51B5</item>
-        <item name="colorPrimaryDark">#ff303F9F</item>
+        <item name="colorPrimary">@color/carbon_cyan_400</item>
+        <item name="colorPrimaryDark">@color/carbon_cyan_a200</item>
         <item name="colorAccent">#ffFF4081</item>
         <item name="carbon_colorError">@color/carbon_amber_400</item>
     </style>
@@ -70,11 +70,11 @@
     </style>
 
     <!--<style name="menu_item_tv">-->
-        <!--<item name="android:layout_width">wrap_content</item>-->
-        <!--<item name="android:layout_height">wrap_content</item>-->
-        <!--<item name="android:textSize">12sp</item>-->
-        <!--<item name="android:gravity">center</item>-->
-        <!--<item name="android:textColor">@drawable/tab_text_color</item>-->
+    <!--<item name="android:layout_width">wrap_content</item>-->
+    <!--<item name="android:layout_height">wrap_content</item>-->
+    <!--<item name="android:textSize">12sp</item>-->
+    <!--<item name="android:gravity">center</item>-->
+    <!--<item name="android:textColor">@drawable/tab_text_color</item>-->
     <!--</style>-->
 
     <style name="main_category">
@@ -141,8 +141,45 @@
         <item name="android:windowEnterAnimation">@anim/photo_dialog_in_anim</item>
         <item name="android:windowExitAnimation">@anim/photo_dialog_out_anim</item>
     </style>
+
     <style name="pw_style">
         <item name="android:windowEnterAnimation">@anim/in</item>
         <item name="android:windowExitAnimation">@anim/out</item>
+    </style>
+
+    <style name="Item" parent="">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Item.Small">
+        <item name="android:layout_width">@dimen/item_circle_size_small</item>
+        <item name="android:layout_height">@dimen/item_circle_size_small</item>
+        <item name="android:textSize">@dimen/item_font_size_small</item>
+    </style>
+
+    <style name="Item.Medium">
+        <item name="android:layout_width">@dimen/item_circle_size_medium</item>
+        <item name="android:layout_height">@dimen/item_circle_size_medium</item>
+        <item name="android:textSize">@dimen/item_font_size_medium</item>
+    </style>
+
+    <style name="Item.Large">
+        <item name="android:layout_width">@dimen/item_circle_size_large</item>
+        <item name="android:layout_height">@dimen/item_circle_size_large</item>
+        <item name="android:textSize">@dimen/item_font_size_large</item>
+    </style>
+
+    <style name="Item.Tumblr">
+        <item name="android:layout_width">@dimen/item_circle_size_tumblr</item>
+        <item name="android:layout_height">@dimen/item_circle_size_tumblr</item>
+        <item name="android:textSize">@dimen/item_font_size_tumblr</item>
+        <item name="android:textColor">@color/carbon_red_600</item>
+    </style>
+
+    <style name="Item.Path">
+        <item name="android:layout_width">@dimen/item_circle_size_path</item>
+        <item name="android:layout_height">@dimen/item_circle_size_path</item>
+        <item name="android:textSize">@dimen/item_font_size_path</item>
+        <item name="android:background">@drawable/path_white_oval</item>
     </style>
 </resources>

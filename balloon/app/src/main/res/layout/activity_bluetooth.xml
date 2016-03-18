@@ -51,6 +51,105 @@
                     app:carbon_overScroll="always" />
     -->
 
+            <carbon.widget.RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <carbon.widget.TextView
+                    android:id="@+id/tv_show_notice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:textColor="@color/carbon_bluegrey_400"
+                    android:text="请点击右上角按钮进行操作"
+                    android:textAppearance="?attr/carbon_textAppearanceSubhead" />
+
+                <View
+                    android:id="@+id/v_centre"
+                    android:layout_width="1dp"
+                    android:layout_height="1dp"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center" />
+
+                <com.ray.balloon.widget.buttons.ClipRevealFrame
+                    android:id="@+id/menu_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/carbon_blue_100"
+                    android:visibility="invisible">
+
+                    <com.ray.balloon.widget.buttons.ArcLayout
+                        android:id="@+id/arc_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:arc_axisRadius="@dimen/layout_child_offset_tumblr"
+                        app:arc_origin="center"
+                        app:arc_radius="@dimen/layout_radius_tumblr">
+
+                        <carbon.widget.FloatingActionButton
+                            android:id="@+id/fab_p2p"
+                            android:layout_width="@dimen/carbon_fabSize"
+                            android:layout_height="@dimen/carbon_fabSize"
+                            android:layout_gravity="end|bottom"
+                            android:layout_margin="@dimen/carbon_padding"
+                            android:background="@color/main"
+                            android:elevation="10dp"
+                            app:carbon_rippleColor="@color/white"
+                            app:carbon_src="@raw/svg_p2p" />
+
+                        <carbon.widget.FloatingActionButton
+                            android:id="@+id/fab_plub"
+                            android:layout_width="@dimen/carbon_fabSize"
+                            android:layout_height="@dimen/carbon_fabSize"
+                            android:layout_gravity="end|bottom"
+                            android:layout_margin="@dimen/carbon_padding"
+                            android:background="@color/main"
+                            android:elevation="10dp"
+                            app:carbon_rippleColor="@color/white"
+                            app:carbon_src="@raw/svg_plub" />
+
+                        <carbon.widget.FloatingActionButton
+                            android:id="@+id/fab_1324"
+                            android:layout_width="@dimen/carbon_fabSize"
+                            android:layout_height="@dimen/carbon_fabSize"
+                            android:layout_gravity="end|bottom"
+                            android:layout_margin="@dimen/carbon_padding"
+                            android:background="@color/main"
+                            android:elevation="10dp"
+                            app:carbon_rippleColor="@color/white"
+                            app:carbon_src="@raw/svg_1324" />
+
+
+                        <carbon.widget.FloatingActionButton
+                            android:id="@+id/fab_one_by_one"
+                            android:layout_width="@dimen/carbon_fabSize"
+                            android:layout_height="@dimen/carbon_fabSize"
+                            android:layout_gravity="end|bottom"
+                            android:layout_margin="@dimen/carbon_padding"
+                            android:background="@color/main"
+                            android:elevation="10dp"
+                            app:carbon_rippleColor="@color/white"
+                            app:carbon_src="@raw/svg_one_by_one" />
+
+                    </com.ray.balloon.widget.buttons.ArcLayout>
+
+                    <carbon.widget.FloatingActionButton
+                        android:id="@+id/center_item"
+                        android:layout_width="@dimen/carbon_fabSize"
+                        android:layout_height="@dimen/carbon_fabSize"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/carbon_padding"
+                        android:background="@color/carbon_deeporange_a700"
+                        android:elevation="10dp"
+                        app:carbon_rippleColor="@color/white"
+                        app:carbon_src="@raw/svg_celebrate" />
+                </com.ray.balloon.widget.buttons.ClipRevealFrame>
+
+            </carbon.widget.RelativeLayout>
+
+
         </carbon.widget.LinearLayout>
 
         <carbon.widget.LinearLayout
