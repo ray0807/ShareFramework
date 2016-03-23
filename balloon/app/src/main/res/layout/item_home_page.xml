@@ -75,7 +75,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/tv_title"
                                 android:gravity="center"
-                                android:text="4分钟前  来自手机iphone7"
+                                android:text="5分钟前  来自手机iphone7"
                                 android:textColor="@color/carbon_grey_500"
                                 android:textSize="12sp" />
                         </carbon.widget.LinearLayout>
@@ -91,7 +91,7 @@
                     android:textColor="@color/carbon_grey_800"
                     android:textSize="16sp" />
 
-                <com.corelibs.views.NoScrollingGridView
+<!--                <com.corelibs.views.NoScrollingGridView
                     android:id="@+id/gv_images"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -102,7 +102,12 @@
                     android:listSelector="@android:color/transparent"
                     android:numColumns="3"
                     android:layout_marginBottom="10dp"
-                    android:verticalSpacing="5dp" />
+                    android:verticalSpacing="5dp" />-->
+                <!-- 不同的地方 -->
+                <ViewStub
+                    android:id="@+id/linkOrImgViewStub"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
                 <View
                     android:layout_width="match_parent"
