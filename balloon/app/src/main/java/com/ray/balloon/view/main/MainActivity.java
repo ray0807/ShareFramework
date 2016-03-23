@@ -69,6 +69,7 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
 
     }
 
+
     @Override
     protected MainPresenter createPresenter() {
         return null;

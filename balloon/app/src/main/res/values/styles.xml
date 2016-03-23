@@ -182,4 +182,9 @@
         <item name="android:textSize">@dimen/item_font_size_path</item>
         <item name="android:background">@drawable/path_white_oval</item>
     </style>
+
+    <style name="FullscreenTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
 </resources>

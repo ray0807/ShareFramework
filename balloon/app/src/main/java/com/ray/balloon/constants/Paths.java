@@ -13,4 +13,5 @@ public class Paths {
     public static final String ApkCache = "/balloon/apk/";
     public static final String ApkImage = "/balloon/images";
     public static final String CrushDir = "/balloon/crush/";
+    public static final String VideoCache = "/balloon/video/";
 }

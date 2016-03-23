@@ -1,6 +1,7 @@
 package com.ray.balloon;
 
 import android.app.Application;
+import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 
@@ -9,12 +10,16 @@ import com.corelibs.common.Configuration;
 import com.corelibs.exception.GlobalExceptionHandler;
 import com.corelibs.utils.PreferencesHelper;
 import com.corelibs.utils.ToastMgr;
+import com.danikula.videocache.HttpProxyCacheServer;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.ray.balloon.authority.AuthorityContext;
 import com.ray.balloon.authority.LoggedIn;
+import com.ray.balloon.constants.Paths;
 import com.ray.balloon.constants.Urls;
 import com.ray.balloon.model.bean.User;
 import com.ray.balloon.tools.image.fresco.ImagePipelineConfigFactory;
+
+import java.io.File;
 
 public class App extends Application {
 
@@ -88,6 +93,18 @@ public class App extends Application {
         }
         return false;
     }
+    //视频缓存
+    private HttpProxyCacheServer proxy;
 
+    public static HttpProxyCacheServer getProxy(Context context) {
+        App app = (App) context.getApplicationContext();
+        return app.proxy == null ? (app.proxy = app.newProxy()) : app.proxy;
+    }
+
+    private HttpProxyCacheServer newProxy() {
+        //return new HttpProxyCacheServer(this);
+        return new HttpProxyCacheServer.Builder(this).cacheDirectory(new File(Environment.getExternalStorageDirectory()
+                + Paths.VideoCache)).build();
+    }
 
 }

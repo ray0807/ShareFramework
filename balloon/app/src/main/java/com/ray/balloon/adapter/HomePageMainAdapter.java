@@ -1,6 +1,7 @@
 package com.ray.balloon.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.net.Uri;
@@ -13,12 +14,12 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 
 import com.corelibs.utils.DisplayUtil;
-import com.corelibs.utils.ToastMgr;
 import com.corelibs.views.NoScrollingGridView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.ray.balloon.R;
 import com.ray.balloon.tools.MTextViewUtils;
 import com.ray.balloon.view.main.ImagePagerActivity;
+import com.ray.balloon.view.video.VideoPlayerActivity;
 import com.ray.balloon.widget.MTextView;
 
 import carbon.drawable.ripple.RippleDrawable;
@@ -126,7 +127,9 @@ public class HomePageMainAdapter extends BaseAdapter {
                     holder.ll_video.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            ToastMgr.show("播放视频");
+                            Intent it = new Intent(context, VideoPlayerActivity.class);
+                            it.putExtra("videoPath", "http://imgtest.chengweiapp.com/febc5e4474384d568a9300d9ae32bfe7.mp4");
+                            context.startActivity(it);
                         }
                     });
                 }

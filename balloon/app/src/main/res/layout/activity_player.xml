@@ -1,0 +1,83 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_material_light">
+
+    <com.ray.balloon.widget.player.AspectLayout
+        android:id="@+id/aspect_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.pili.pldroid.player.widget.VideoView
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true" />
+    </com.ray.balloon.widget.player.AspectLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/buffering_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <carbon.widget.ProgressBar
+            android:id="@+id/buffering_progress"
+            android:layout_width="@dimen/carbon_smallFabSize"
+            android:layout_height="@dimen/carbon_smallFabSize"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="@dimen/carbon_padding"
+            android:tag="animate"
+            app:carbon_inAnimation="pop"
+            app:carbon_outAnimation="none"
+            app:carbon_progressStyle="circular_indeterminate"
+            app:carbon_tint="#ffffffff" />
+
+
+        <TextView
+            android:id="@+id/buffering_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buffering_progress"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:adjustViewBounds="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="0"
+            android:scaleType="centerInside"
+            android:singleLine="true"
+            android:text="正在加载..."
+            android:textSize="14sp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_play_finished"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#77666666"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_finish_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:text="视频已播放完点击退出"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+</RelativeLayout>
