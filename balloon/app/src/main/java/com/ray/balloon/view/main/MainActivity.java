@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
-import android.widget.AbsListView;
 import android.widget.ListView;
 
 import com.corelibs.base.BaseActivity;
@@ -55,24 +54,13 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
         toolbar.setBackgroundColor(getResources().getColor(R.color.main));
         list_main.setAdapter(new HomePageMainAdapter(this));
         mRefreshLayout.setOnRefreshListener(this);
-        list_main.setOnScrollListener(new AbsListView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-
-            }
-
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-
-            }
-        });
 
     }
 
 
     @Override
     protected MainPresenter createPresenter() {
-        return null;
+        return new MainPresenter();
     }
 
     @Override

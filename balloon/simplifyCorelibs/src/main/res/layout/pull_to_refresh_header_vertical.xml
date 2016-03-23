@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right|center" />
 
-            <com.bm.corelibs.views.CircularBar
+            <com.corelibs.views.CircularBar
                 android:id="@+id/pull_to_refresh_progress"
                 android:layout_width="28dp"
                 android:layout_height="28dp"

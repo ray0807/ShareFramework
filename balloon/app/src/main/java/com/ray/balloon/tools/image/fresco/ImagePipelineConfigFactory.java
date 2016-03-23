@@ -25,13 +25,10 @@ public class ImagePipelineConfigFactory {
     private static ImagePipelineConfig sImagePipelineConfig;
     private static ImagePipelineConfig sOkHttpImagePipelineConfig;
 
-    /**
-     * ʹ�� android http ����֧�ֵ�����
-     */
+
     public static ImagePipelineConfig getImagePipelineConfig(Context context) {
         if (sImagePipelineConfig == null) {
             ImagePipelineConfig.Builder configBuilder = ImagePipelineConfig.newBuilder(context);
-            // Ҫ����һ�� ProgressiveJpegConfig. ��ʵ��
             configBuilder.setProgressiveJpegConfig(new SimpleProgressiveJpegConfig());
             configureCaches(configBuilder, context);
             configureLoggingListeners(configBuilder);
@@ -40,15 +37,12 @@ public class ImagePipelineConfigFactory {
         return sImagePipelineConfig;
     }
 
-    /**
-     * ʹ��okhttp����֧�ֵ�����
-     */
+
     public static ImagePipelineConfig getOkHttpImagePipelineConfig(Context context) {
         if (sOkHttpImagePipelineConfig == null) {
             OkHttpClient okHttpClient = new OkHttpClient();
             ImagePipelineConfig.Builder configBuilder =
                     OkHttpImagePipelineConfigFactory.newBuilder(context, okHttpClient);
-            // Ҫ����һ�� ProgressiveJpegConfig. ��ʵ��
             configBuilder.setProgressiveJpegConfig(new SimpleProgressiveJpegConfig());
             configureCaches(configBuilder, context);
             configureLoggingListeners(configBuilder);
@@ -77,11 +71,9 @@ public class ImagePipelineConfigFactory {
                             }
                         })
                 .setMainDiskCacheConfig(
-                        DiskCacheConfig.newBuilder()
-                                // �Զ���ͼƬ����·��
+                        DiskCacheConfig.newBuilder(context)
                                 .setBaseDirectoryPath(new File(App.getInstance().getDiskCacheDir()))
                                 .setBaseDirectoryName(Constant.IMAGE_CACHE_PATH)
-                                        // �Զ����ڴ滺��ط�ֵ
                                 .setMaxCacheSize(Constant.MAX_DISK_CACHE_SIZE)
                                 .build());
     }

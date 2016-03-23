@@ -20,6 +20,7 @@ import com.ray.balloon.R;
 import com.ray.balloon.tools.MTextViewUtils;
 import com.ray.balloon.view.main.ImagePagerActivity;
 import com.ray.balloon.view.video.VideoPlayerActivity;
+import com.ray.balloon.view.weibodetail.WeiboDetailsActivity;
 import com.ray.balloon.widget.MTextView;
 
 import carbon.drawable.ripple.RippleDrawable;
@@ -96,6 +97,14 @@ public class HomePageMainAdapter extends BaseAdapter {
         rippleDrawable.setCallback(holder.card);
         rippleDrawable.setHotspotEnabled(true);
         holder.card.setRippleDrawable(rippleDrawable);
+
+        holder.card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(context, WeiboDetailsActivity.class);
+                context.startActivity(it);
+            }
+        });
 
 
         holder.item_preson_icon.setImageURI(Uri.parse("http://imgsrc.baidu.com/forum/pic/item/3b292df5e0fe992503d986c834a85edf8cb17155.jpg"));

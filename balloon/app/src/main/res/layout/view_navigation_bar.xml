@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="48dp"
+    android:layout_height="56dp"
     android:background="@color/main">
 
     <LinearLayout
@@ -15,6 +15,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:contentDescription="@null"
             android:scaleType="fitCenter"
             android:src="@drawable/general_back_icon" />
@@ -26,8 +27,8 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="@string/app_name"
-        android:textColor="@color/white"
-        android:textSize="18sp" />
+        android:textAppearance="?attr/carbon_textAppearanceTitleInverse"
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/tv_top_right"

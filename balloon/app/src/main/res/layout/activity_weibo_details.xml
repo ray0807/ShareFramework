@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<carbon.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-</LinearLayout>
+    <carbon.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:carbon_icon="@null">
+    </carbon.widget.Toolbar>
+
+
+    <!--    <com.corelibs.views.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/ptr_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/carbon_grey_50"
+            android:dividerHeight="1dp"
+            android:listSelector="@color/white">
+
+        </com.corelibs.views.pulltorefresh.library.PullToRefreshListView>-->
+    <com.corelibs.views.ptr.PtrLoadMoreListView
+        android:id="@+id/ptr_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/carbon_grey_50"
+        android:dividerHeight="1dp"
+        android:listSelector="@color/white">
+
+    </com.corelibs.views.ptr.PtrLoadMoreListView>
+
+</carbon.widget.LinearLayout>

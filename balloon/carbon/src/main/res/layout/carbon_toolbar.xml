@@ -16,15 +16,16 @@
         app:carbon_inAnimation="none"
         app:carbon_outAnimation="none" />
 
+    <!--     android:layout_marginLeft="@dimen/carbon_windowPadding"
+        android:layout_marginStart="@dimen/carbon_windowPadding"
+        android:layout_toEndOf="@id/carbon_toolbarIcon"
+        android:layout_toRightOf="@id/carbon_toolbarIcon"-->
     <carbon.widget.TextView
         android:id="@+id/carbon_toolbarTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginLeft="@dimen/carbon_windowPadding"
-        android:layout_marginStart="@dimen/carbon_windowPadding"
-        android:layout_toEndOf="@id/carbon_toolbarIcon"
-        android:layout_toRightOf="@id/carbon_toolbarIcon"
+
         android:text=""
         android:textAppearance="?attr/carbon_textAppearanceTitleInverse"
         android:visibility="gone" />
