@@ -16,7 +16,6 @@ import com.ray.balloon.view.login.LoginView;
 /**
  * 登录逻辑
  *
- * Created by Ryan on 2015/12/29.
  */
 public class LoginPresenter extends BaseRxPresenter<LoginView> {
     private LoginManager manager;

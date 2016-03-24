@@ -33,7 +33,7 @@ dependencies {
     compile 'com.android.support:cardview-v7:23.2.0'
     compile project(':simplifyCorelibs')
 
-    //compile 'com.facebook.fresco:drawee-volley:0.5.0' //��corelib�е�volley�ظ�
+    //compile 'com.facebook.fresco:drawee-volley:0.5.0'
     //compile 'com.facebook.fresco:fresco:0.5.0'
     //compile 'com.facebook.fresco:drawee:0.5.0'
     //compile 'com.facebook.fresco:fbcore:0.5.0'
@@ -44,7 +44,8 @@ dependencies {
     compile files('libs/ijkmediaplayer.jar')
     compile files('libs/pldroid-player-1.1.6.jar')
     compile 'com.danikula:videocache:2.3.3'
-    compile 'com.facebook.fresco:fresco:0.9.0'
+
+    compile 'com.facebook.fresco:fresco:0.9.0'//使用0.5出现报错，因为视频播放加入了so，而0.5在x64包下，so有问题。
     compile 'com.facebook.fresco:drawee:0.9.0'
     compile 'com.facebook.fresco:fbcore:0.9.0'
     compile 'com.facebook.fresco:imagepipeline:0.9.0'

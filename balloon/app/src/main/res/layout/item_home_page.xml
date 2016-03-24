@@ -66,7 +66,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="汪雷"
+                                android:text="Ray"
                                 android:textColor="@color/weibo_yellow"
                                 android:textSize="16sp" />
 
@@ -91,18 +91,18 @@
                     android:textColor="@color/carbon_grey_800"
                     android:textSize="16sp" />
 
-<!--                <com.corelibs.views.NoScrollingGridView
-                    android:id="@+id/gv_images"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:clickable="false"
-                    android:horizontalSpacing="5dp"
-                    android:listSelector="@android:color/transparent"
-                    android:numColumns="3"
-                    android:layout_marginBottom="10dp"
-                    android:verticalSpacing="5dp" />-->
+                <!--                <com.corelibs.views.NoScrollingGridView
+                                    android:id="@+id/gv_images"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:clickable="false"
+                                    android:horizontalSpacing="5dp"
+                                    android:listSelector="@android:color/transparent"
+                                    android:numColumns="3"
+                                    android:layout_marginBottom="10dp"
+                                    android:verticalSpacing="5dp" />-->
                 <!-- 不同的地方 -->
                 <ViewStub
                     android:id="@+id/linkOrImgViewStub"
