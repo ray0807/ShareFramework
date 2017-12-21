@@ -5,12 +5,13 @@
 ![](screen/1.gif)
 
 再看下项目目录结构：
-![image](https://github.com/ray0807/ShareFramework/tree/master/screen/1.jpg)
-![image](https://github.com/ray0807/ShareFramework/tree/master/screen/2.jpg)
-![image](https://github.com/ray0807/ShareFramework/tree/master/screen/3.jpg)
-![image](https://github.com/ray0807/ShareFramework/tree/master/screen/4.jpg)
+![](screen/1.jpg)
+![](screen/2.jpg)
+![](screen/3.jpg)
+![](screen/4.jpg)
 
-类图请查看：https://github.com/ray0807/ShareFramework/tree/master/%E7%B1%BB%E5%9B%BE
+[类图请查看](https://github.com/ray0807/ShareFramework/tree/master/%E7%B1%BB%E5%9B%BE)
+
 
 # 最新改版
 > 由于长时间未进行android开发，所以此项目未更新，近期由于项目原因，需要搭建一个简易脚手架，借鉴此项目并且优化相关内容。
