@@ -11,3 +11,14 @@
 ![image](https://github.com/ray0807/ShareFramework/tree/master/screen/4.jpg)
 
 类图请查看：https://github.com/ray0807/ShareFramework/tree/master/%E7%B1%BB%E5%9B%BE
+
+# 最新改版
+> 由于长时间非进行android开发，所以此项目未更新，近期由于项目原因，需要搭建一个简易脚手架，借鉴此项目并且优化相关内容。
+
+## 优化
+- 添加了热更新操作（tinker）
+- 添加了快速多渠道打包（walle）
+- 添加自动化处理脚本，配合jenkins自动化操作
+- 优化网络请求
+
+飞机票[android脚手架](https://github.com/xmtj/androidBase)
