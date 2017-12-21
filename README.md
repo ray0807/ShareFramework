@@ -20,5 +20,6 @@
 - 添加了快速多渠道打包（walle）
 - 添加自动化处理脚本，配合jenkins自动化操作
 - 优化网络请求
+- 添加hybird基础类
 
 飞机票[android脚手架](https://github.com/xmtj/androidBase)
